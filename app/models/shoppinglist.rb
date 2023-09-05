@@ -1,3 +1,3 @@
 class Shoppinglist < ApplicationRecord
-  has_many :shoopinglist_items
+  has_many :shoppinglist_items
 end
