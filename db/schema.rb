@@ -10,9 +10,67 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_04_184310) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_04_193153) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "ingredients", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "mealplan_recipes", force: :cascade do |t|
+    t.bigint "mealplan_id", null: false
+    t.bigint "recipe_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["mealplan_id"], name: "index_mealplan_recipes_on_mealplan_id"
+    t.index ["recipe_id"], name: "index_mealplan_recipes_on_recipe_id"
+  end
+
+  create_table "mealplans", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "query_input"
+    t.string "status"
+    t.string "query_input_response"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_mealplans_on_user_id"
+  end
+
+  create_table "recipe_ingredients", force: :cascade do |t|
+    t.bigint "recipe_id", null: false
+    t.bigint "ingredient_id", null: false
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ingredient_id"], name: "index_recipe_ingredients_on_ingredient_id"
+    t.index ["recipe_id"], name: "index_recipe_ingredients_on_recipe_id"
+  end
+
+  create_table "recipes", force: :cascade do |t|
+    t.string "name"
+    t.string "instructions"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_recipes_on_user_id"
+  end
+
+  create_table "shoopinglist_items", force: :cascade do |t|
+    t.bigint "shoppinglist_id", null: false
+    t.bigint "recipe_ingredient_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipe_ingredient_id"], name: "index_shoopinglist_items_on_recipe_ingredient_id"
+    t.index ["shoppinglist_id"], name: "index_shoopinglist_items_on_shoppinglist_id"
+  end
+
+  create_table "shoppinglists", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,4 +84,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_04_184310) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "mealplan_recipes", "mealplans"
+  add_foreign_key "mealplan_recipes", "recipes"
+  add_foreign_key "mealplans", "users"
+  add_foreign_key "recipe_ingredients", "ingredients"
+  add_foreign_key "recipe_ingredients", "recipes"
+  add_foreign_key "recipes", "users"
+  add_foreign_key "shoopinglist_items", "recipe_ingredients"
+  add_foreign_key "shoopinglist_items", "shoppinglists"
 end
