@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_04_193153) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_05_205229) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -45,6 +45,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_04_193153) do
     t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "unit"
     t.index ["ingredient_id"], name: "index_recipe_ingredients_on_ingredient_id"
     t.index ["recipe_id"], name: "index_recipe_ingredients_on_recipe_id"
   end
@@ -58,18 +59,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_04_193153) do
     t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 
-  create_table "shoopinglist_items", force: :cascade do |t|
+  create_table "shoppinglist_items", force: :cascade do |t|
     t.bigint "shoppinglist_id", null: false
     t.bigint "recipe_ingredient_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["recipe_ingredient_id"], name: "index_shoopinglist_items_on_recipe_ingredient_id"
-    t.index ["shoppinglist_id"], name: "index_shoopinglist_items_on_shoppinglist_id"
+    t.index ["recipe_ingredient_id"], name: "index_shoppinglist_items_on_recipe_ingredient_id"
+    t.index ["shoppinglist_id"], name: "index_shoppinglist_items_on_shoppinglist_id"
   end
 
   create_table "shoppinglists", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "mealplan_id"
+    t.index ["mealplan_id"], name: "index_shoppinglists_on_mealplan_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -90,6 +93,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_04_193153) do
   add_foreign_key "recipe_ingredients", "ingredients"
   add_foreign_key "recipe_ingredients", "recipes"
   add_foreign_key "recipes", "users"
-  add_foreign_key "shoopinglist_items", "recipe_ingredients"
-  add_foreign_key "shoopinglist_items", "shoppinglists"
+  add_foreign_key "shoppinglist_items", "recipe_ingredients"
+  add_foreign_key "shoppinglist_items", "shoppinglists"
 end

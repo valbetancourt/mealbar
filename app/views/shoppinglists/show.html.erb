@@ -1,0 +1,6 @@
+<h1>Shoppinglists#show</h1>
+<p>Find me in app/views/shoppinglists/show.html.erb</p>
+
+<% @shoppinglist.shoppinglist_items.recipe_ingredients.each do |ri| %>
+  <%= ri.ingredient.name - ri.quantity %> #Agregar ri.unit
+<% end %>
