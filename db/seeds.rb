@@ -6,12 +6,13 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-User.destroy_all
-Ingredient.destroy_all
-Recipe.destroy_all
-Mealplan.destroy_all
 MealplanRecipe.destroy_all
+RecipeIngredient.destroy_all
+Recipe.destroy_all
+Ingredient.destroy_all
 Shoppinglist.destroy_all
+Mealplan.destroy_all
+User.destroy_all
 
 # Users
 puts "creating user 1...."
@@ -193,7 +194,7 @@ shopping_list1 = Shoppinglist.new
 shopping_list1.save!
 mealplan1.recipes.each do |recipe|
   recipe.recipe_ingredients.each do |recipe_ingredient|
-    shopping_list1.shoopinglist_items.create!(recipe_ingredient: recipe_ingredient)
+    shopping_list1.shoppinglist_items.create!(recipe_ingredient: recipe_ingredient)
   end
 end
 
@@ -202,6 +203,6 @@ shopping_list2 = Shoppinglist.new
 shopping_list2.save!
 mealplan2.recipes.each do |recipe|
   recipe.recipe_ingredients.each do |recipe_ingredient|
-    shopping_list2.shoopinglist_items.create!(recipe_ingredient: recipe_ingredient)
+    shopping_list2.shoppinglist_items.create!(recipe_ingredient: recipe_ingredient)
   end
 end
