@@ -2,7 +2,8 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show]
 
   def index
-    @recipes = policy_scope(Recipe)
+    # @recipes = policy_scope(Recipe)
+    @recipes = Recipe.all
   end
 
   private
