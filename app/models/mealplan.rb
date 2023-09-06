@@ -4,4 +4,8 @@ class Mealplan < ApplicationRecord
   has_many :recipes, through: :mealplan_recipes
 
   has_one :shoppinglist
+
+  validates :user_id, presence: true
+  validates :initial_date, presence: true
+  validates :final_date, presence: true
 end
