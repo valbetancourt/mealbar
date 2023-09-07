@@ -1,7 +1,12 @@
 <h2>View all of our recipes here!</h2>
-<p></p>
+<div class="col-sm-8 my-3">
+  <%= form_with url: recipes_path, method: :get, class: "d-flex" do %>
+    <%= text_field_tag :query, params[:query], class: "form-control me-2", placeholder: "Search for a recipe by name or category" %>
+    <%= submit_tag "Search", class: "btn btn-outline-primary" %>
+  <% end %>
+</div>
 
-<%= render "shared/recipe_card" %>
+<%# <%= render "shared/recipe_card" %> %>
 
 <% @recipes.each do |recipe| %>
   <h5><%= recipe.name %></h5>
