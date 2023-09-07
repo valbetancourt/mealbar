@@ -85,3 +85,6 @@ group :test do
 end
 
 gem "ruby-openai", "~> 5.1"
+
+# PG search gem to make search easier
+gem "pg_search"
