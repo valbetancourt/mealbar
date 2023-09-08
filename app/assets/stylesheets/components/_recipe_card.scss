@@ -16,7 +16,6 @@ background: linear-gradient(135deg,  rgba(251,250,246,1) 9%,rgba(212,206,191,1) 
 
 }
 
-
 .cont_central {
    position: absolute;
   //  width: 100%;
@@ -44,14 +43,14 @@ transition-delay: 0.7s;
   overflow: hidden;
   background-color: #eee;
   border-radius:5px;
-top: -20px;
-float: left;
-z-index: 2;
--webkit-transition: all 0.5s;
--o-transition: all 0.5s;
-transition: all 0.5s;
-transition: all 0.5s;
-box-shadow: 1px 1px 20px -5px rgba(0,0,0,0.5);
+  top: -20px;
+  float: left;
+  z-index: 2;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  transition: all 0.5s;
+  box-shadow: 1px 1px 20px -5px rgba(0,0,0,0.5);
 }
 
 .cont_img_back {
@@ -75,7 +74,7 @@ transition: all 1s;
 }
 
 .cont_text_ingredients {
-position: absolute;
+  position: absolute;
   width: 0px;
 top: 0px;
 left: 290px;
