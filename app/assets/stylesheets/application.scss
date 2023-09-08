@@ -11,9 +11,13 @@
 @import "components/index";
 @import "pages/index";
 
+// color variables preguntar mañana a andres
+// $call-to-action-color: #7D1538;
+
 * {
   margin: 0px auto;
   padding: 0px;
-  text-align: center;
-  font-family: 'Open Sans', sans-serif;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  font-size: 62.5%;
 }
