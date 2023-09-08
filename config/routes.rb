@@ -1,11 +1,4 @@
 Rails.application.routes.draw do
-  get 'mealplans/index'
-  get 'mealplans/new'
-  get 'mealplans/create'
-  get 'mealplans/edit'
-  get 'mealplans/show'
-  get 'mealplans/update'
-  get 'mealplans/destroy'
   devise_for :users
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -14,5 +7,8 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :recipes, only: %i[index]
   resources :shoppinglists, only: %i[create show destroy]
-  resources :mealplans
+  resources :mealplans, only: %i[index new create show] do
+    resources :mealplan_recipes, only: %i[index new create]
+  end
+  post "/mealplans/:mealplan_id/mealplan_recipes", to: "mealplan_recipes#add", as: :add_mealplan_recipe
 end

@@ -1,0 +1,4 @@
+<%= simple_form_for [@mealplan, @mealplan_recipe] do |f| %>
+  <%= f.association :recipe %>
+  <%= f.submit %>
+<% end %>

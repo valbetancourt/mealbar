@@ -11,12 +11,18 @@ class MealplansController < ApplicationController
   def create
     @mealplan = Mealplan.new(mealplan_params)
     @mealplan.user = current_user
+    if @mealplan.save
+      redirect_to mealplan_path(@mealplan)
+    else
+      render :new
+    end
   end
 
   def edit
   end
 
   def show
+    @mealplan = Mealplan.find(params[:id])
   end
 
   def update
@@ -28,7 +34,7 @@ class MealplansController < ApplicationController
   private
 
   def mealplan_params
-    params.requiere(:mealplan).permit(:name, :days, :initial_date, :query_input, :status, :query_input_response)
+    params.require(:mealplan).permit(:name, :days, :initial_date)
   end
 
 end
