@@ -2,7 +2,7 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show]
 
   def index
-    @recipes = Recipe.limit(1)
+    @recipes = Recipe.all
     if params[:query].present?
       @recipes = Recipe.search_by_name_and_category(params[:query])
     end
