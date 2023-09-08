@@ -1,2 +1,7 @@
 <h1>Mealplans#show</h1>
 <p>Find me in app/views/mealplans/show.html.erb</p>
+<%= link_to "Add recipe", new_mealplan_mealplan_recipe_path(@mealplan) %>
+
+<% @mealplan.mealplan_recipes.each do |recipe| %>
+  <p><%= recipe.recipe.name %></p>
+<% end %>
