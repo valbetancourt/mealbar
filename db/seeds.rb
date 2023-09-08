@@ -189,7 +189,7 @@ salad.recipe_ingredients.create!(ingredient_id: onion.id, quantity: 1)
 
 # Mealplans
 puts "creating mealplan 1"
-mealplan1 = Mealplan.new(user_id: user1.id, initial_date: Date.today, final_date: Date.today + 7)
+mealplan1 = Mealplan.new(user_id: user1.id, initial_date: Date.today, days: 7)
 mealplan1.save!
 # TODO
 # refactor this
@@ -200,7 +200,7 @@ mealplan1.mealplan_recipes.create!(recipe: chicken_pasta)
 mealplan1.mealplan_recipes.create!(recipe: salmon_pasta)
 
 puts "creating mealplan 2"
-mealplan2 = Mealplan.new(user_id: user2.id, initial_date: Date.today, final_date: Date.today + 7)
+mealplan2 = Mealplan.new(user_id: user2.id, initial_date: Date.today, days: 7)
 mealplan2.save!
 # TODO
 # refactor this
