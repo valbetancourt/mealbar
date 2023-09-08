@@ -1,0 +1,25 @@
+.card-section-home {
+  // font-size: 3rem;
+}
+
+.card-text {
+  // font-size: 2rem;
+}
+
+.card-body-home {
+  background-color: #f5f5f5;
+  color: black;
+  border-radius: 6px;
+  flex: 1 1 auto;
+  padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
+  transition: background 0.3s ease;
+}
+.card-body-home:hover {
+  background-color: #7D1538;
+  color: white;
+}
+
+.title-card-section-home {
+  // font-size: 3rem;
+  text-align: center;
+}
