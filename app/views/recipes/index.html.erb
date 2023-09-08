@@ -1,10 +1,12 @@
-<h2>VIEW ALL OF OUR RECIPES HERE!</h2>
-
-<div class="col-sm-8 my-3 mb-5">
-  <%= form_with url: recipes_path, method: :get, class: "d-flex" do %>
-    <%= text_field_tag :query, params[:query], class: "form-control me-2", placeholder: "Search for a recipe by name or category" %>
-    <%= submit_tag "Search", class: "btn btn-outline-primary" %>
-  <% end %>
+<div class="container mt-5">
+  <div class="row justify-content-center align-center">
+    <h2 class="col-6">VIEW ALL OF OUR RECIPES HERE!</h2>
+    <div class="col-sm-8 my-3 mb-5">
+      <%= form_with url: recipes_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query, params[:query], class: "form-control me-2", placeholder: "Search for a recipe by name or category" %>
+        <%= submit_tag "Search", class: "btn btn-flat" %>
+      <% end %>
+    </div>
+    <%= render "shared/recipe_card" %>
+  </div>
 </div>
-
-<%= render "shared/recipe_card" %>

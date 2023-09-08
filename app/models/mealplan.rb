@@ -7,5 +7,5 @@ class Mealplan < ApplicationRecord
 
   validates :user_id, presence: true
   validates :initial_date, presence: true
-  validates :final_date, presence: true
+  validates :days, presence: true
 end
