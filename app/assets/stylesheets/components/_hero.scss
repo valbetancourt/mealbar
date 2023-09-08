@@ -1,5 +1,10 @@
-.banner-hero {
-  text-align: center;
+.hero {
+  margin: 4rem;
+}
+
+.img-hero-banner {
+  width:  50%;
+  border-radius: 3%;
 }
 
 .banner {
@@ -16,25 +21,24 @@
   font-weight: bold;
 }
 
-.banner p {
-  font-size: 2rem;
-  color: white;
-  opacity: .7;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-}
-
 .bg-slogan {
-  background-color: #798086e6;
-  border-radius: 6px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   padding: 2rem;
 }
 
 .meal-planning {
-  font-size: 3rem;
+  // font-size: 3rem;
   font-weight: 900;
 }
 
-.font-family-h1 {
+.font-family-banner {
   font-family: 'Roboto', sans-serif;
 }
+.p-banner {
+  // font-size: 2rem;
+  font-weight: 300;
+}
+
+.header-banner {
+  margin-left: 0px;
+}
+

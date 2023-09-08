@@ -1,55 +1,61 @@
-<div class="banner banner-hero" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/dxk959tzt/image/upload/v1694115155/luisa-brimble-2RrBE90w0T8-unsplash_pbkzxt.jpg);">
-  <div class="row">
-    <div class="container col-6 bg-slogan">
-      <h1 class="font-family-h1">Revolutionize Your <span class="meal-planning">Meal Planning</span> with AI!</h1>
-      <p class="m-3">Discover the future of meal prep with our cutting-edge AI-powered app. Say goodbye to meal planning stress and hello to delicious, personalized meal plans tailored just for you. Get started today and experience the future of healthy eating.</p>
-      <a class="btn btn-flat mb-3" href="#">Apply now</a>
+<div class="body-home">
+  <div class="row container align-items-center hero">
+    <img class="img-hero-banner col-5" src="https://res.cloudinary.com/dxk959tzt/image/upload/v1694184959/katie-smith-uQs1802D0CQ-unsplash_rksvjv.jpg" alt="">
+    <div class="container col-5 bg-slogan">
+      <div class="row">
+        <h1 class="font-family-banner header-banner col-10">Revolutionize Your <span class="meal-planning">Meal Planning</span> with AI!</h1>
+      </div>
+      <div class="d-flex justify-content-between flex-column">
+        <p class="font-family-banner p-banner">Discover the future of meal prep with our cutting-edge AI-powered app. Say goodbye to meal planning stress and hello to delicious, personalized meal plans tailored just for you. Get started today and experience the future of healthy eating.</p>
+        <%= button_to "Create your Meal Plan now", recipes_path, method: :get, class: "btn btn-flat" %>
+      </div>
     </div>
   </div>
-</div>
-<section>
-  <div class="container m-5 card-section-home">
-    <div class="row">
-      <h2>But how does it work?</h2>
-      <p>Our app uses the latest in AI technology to create personalized meal plans based on your preferences and dietary needs. Simply tell us what you like to eat and we'll do the rest!</p>
+  </div>
+  <section class="mt-5">
+    <div class="container m-5 card-section-home">
+      <div class="row title-card-section-home row flex-column align-items-center">
+        <h2 class="col-6 mt-4 p-3">But how does it work?</h2>
+        <p class="col-6 p-2">Our app uses the latest in AI technology to create personalized meal plans based on your preferences and dietary needs. Simply tell us what you like to eat and we'll do the rest!</p>
+      </div>
+      <div class="row m-5 p-4">
+        <div class="col-4">
+          <div class="">
+            <div class="card-body-home p-4">
+              <h3 class="card-title">Tell us what you like</h3>
+              <p class="card-text">Our AI-powered chatbot will ask you a few simple questions about your food preferences and dietary needs.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="">
+            <div class="card-body-home p-4">
+              <h3 class="card-title">Check out our recipes</h3>
+              <p class="card-text">We've got special recipes that you may choose from, done by our chefs in order to provide healthy meals</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="">
+            <div class="card-body-home p-4">
+              <h3 class="card-title">Get your personalized meal plan</h3>
+              <p class="card-text">Our AI will create a personalized meal plan based on your preferences and dietary needs.</p>
+            </div>
+          </div>
+        </div>
     </div>
-    <div class="row">
-      <div class="col-4">
-        <div class="card">
-          <div class="card-body">
-            <h3 class="card-title">Tell us what you like</h3>
-            <p class="card-text">Our AI-powered chatbot will ask you a few simple questions about your food preferences and dietary needs.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-4">
-        <div class="card">
-          <div class="card-body">
-            <h3 class="card-title">Check out our recipes</h3>
-            <p class="card-text">We've got special recipes that you may choose from, done by our chefs in order to provide healthy meals</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-4">
-        <div class="card">
-          <div class="card-body">
-            <h3 class="card-title">Get your personalized meal plan</h3>
-            <p class="card-text">Our AI will create a personalized meal plan based on your preferences and dietary needs.</p>
-          </div>
-        </div>
-      </div>
-  </div>
-</section>
-<div class="footer">
-  <div class="footer-links">
-    <a href="#"><i class="fab fa-github social-media-icon"></i></a>
-    <a href="#"><i class="fab fa-instagram social-media-icon"></i></a>
-    <a href="#"><i class="fab fa-facebook social-media-icon"></i></a>
-    <a href="#"><i class="fab fa-twitter social-media-icon"></i></a>
-    <a href="#"><i class="fab fa-linkedin social-media-icon"></i></a>
-  </div>
-  <div class="footer-copyright">
-  <%# porque no me anda la imagen? %>
-    <p class="footer-text">Powered by chatGPT <img src="../../assets/images/openai.png" alt="OpenAI Logo"></p>
+  </section>
+  <div class="footer">
+    <div class="footer-links">
+      <a href="#"><i class="fab fa-github social-media-icon"></i></a>
+      <a href="#"><i class="fab fa-instagram social-media-icon"></i></a>
+      <a href="#"><i class="fab fa-facebook social-media-icon"></i></a>
+      <a href="#"><i class="fab fa-twitter social-media-icon"></i></a>
+      <a href="#"><i class="fab fa-linkedin social-media-icon"></i></a>
+    </div>
+    <div class="footer-copyright">
+    <%# porque no me anda la imagen? %>
+      <p class="footer-text">Powered by chatGPT <img src="../../assets/images/openai.png" alt="OpenAI Logo"></p>
+    </div>
   </div>
 </div>
