@@ -33,6 +33,16 @@ user4.save!
 puts "creating user 5...."
 user5 = User.new(email: "jimena@example.com", password: "123456")
 user5.save!
+puts "creating user 6...."
+file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1689560078/lmywiilsiprsptawr2wl.jpg")
+user7 = User.new(email: "juan@gmail.com", password: "123456")
+user7.photo.attach(io: file, filename: "juan.jpg", content_type: "image/jpg")
+user7.save!
+puts "creating user 7...."
+file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1689605663/j1xwmqtjj5i9ibi6ric9.jpg")
+user2 = User.new(email: "valeria@gmail.com", password: "123456")
+user2.photo.attach(io: file, filename: "valeria.jpg", content_type: "image/jpg")
+user2.save!
 
 # Ingredients
 puts "creating ingredient salmon"
