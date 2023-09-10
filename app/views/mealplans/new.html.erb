@@ -1,8 +1,22 @@
-<h1>Mealplans#new</h1>
-<p>Find me in app/views/mealplans/new.html.erb</p>
-<%= simple_form_for @mealplan do |f| %>
-  <%= f.input :name %>
-  <%= f.input :days %>
-  <%= f.input :initial_date %>
-  <%= f.button :submit %>
-<% end %>
+<div class="container w-50 border shadow mt-5">
+  <h2>CREATE A PERSONALIZED MEAL PLAN</h2>
+  <p>Please answer the questions below...</p>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-6 mb-3">
+        <%= simple_form_for @mealplan do |f| %>
+          <%= f.input :name %>
+          <div class="row">
+            <div class="col-4">
+              <%= f.input :days %>
+            </div>
+            <div class="col-8">
+              <%= f.input :initial_date, html5: true %>
+            </div>
+          </div>
+          <%= f.button :submit, class:"btn btn-flat" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
