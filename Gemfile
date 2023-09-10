@@ -88,3 +88,6 @@ gem "ruby-openai", "~> 5.1"
 
 # PG search gem to make search easier
 gem "pg_search"
+
+# Initials gem to generate initials for users images
+gem 'initials'
