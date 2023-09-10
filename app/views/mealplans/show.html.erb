@@ -1,9 +1,17 @@
+
 <h4>Name: <%= @mealplan.name %></h4>
 <h5 class="text-muted">Days: <%= @mealplan.days %></h5>
 <h6 class="text-success">Initial Date: <%= @mealplan.initial_date %></h6>
 
 <%= link_to "Add recipe", new_mealplan_mealplan_recipe_path(@mealplan) %>
 
-<% @mealplan.mealplan_recipes.each do |recipe| %>
-  <p><%= recipe.recipe.name %></p>
-<% end %>
+<div class="container row gap-3 justify-content-center">
+  <% @mealplan.mealplan_recipes.each do |recipe| %>
+    <div class="card col-4" style="width: 18rem;">
+      <%= cl_image_tag recipe.recipe.photo.key %>
+      <div class="card-body">
+        <p class="card-text"><%= recipe.recipe.name %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
