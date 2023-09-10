@@ -2,7 +2,9 @@
     <div class="row">
       <div class="col">
         <p>my meal plans</p>
-        
+          <%= @mealplans.take(5).each do |mealplan| %>
+            <p><%= mealplan.current_user.name %></p>
+          <% end %>
       </div>
     </div>
 </div>
