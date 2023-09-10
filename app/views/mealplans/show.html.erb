@@ -1,7 +1,14 @@
-<h1>Mealplans#show</h1>
+<h1 class="mt-3"><%= @mealplan.name %> Mealplan</h1>
 <p>Find me in app/views/mealplans/show.html.erb</p>
 <%= link_to "Add recipe", new_mealplan_mealplan_recipe_path(@mealplan) %>
 
-<% @mealplan.mealplan_recipes.each do |recipe| %>
-  <p><%= recipe.recipe.name %></p>
-<% end %>
+<div class="container row gap-3 justify-content-center">
+  <% @mealplan.mealplan_recipes.each do |recipe| %>
+    <div class="card col-4" style="width: 18rem;">
+      <%= cl_image_tag recipe.recipe.photo.key %>
+      <div class="card-body">
+        <p class="card-text"><%= recipe.recipe.name %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
