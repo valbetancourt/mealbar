@@ -1,4 +1,8 @@
+require "json"
+require_relative "../services/ai"
+
 class MealplansController < ApplicationController
+
   before_action :authenticate_user!
   def index
     @mealplans = Mealplan.all
@@ -24,6 +28,8 @@ class MealplansController < ApplicationController
   def show
     @mealplan = Mealplan.find(params[:id])
     @recipes = Recipe.all
+    # @client = Ai.new
+    # @client.prompt(@mealplan.like, @mealplan.dislike)
   end
 
   def update
@@ -37,5 +43,4 @@ class MealplansController < ApplicationController
   def mealplan_params
     params.require(:mealplan).permit(:name, :days, :initial_date)
   end
-
 end
