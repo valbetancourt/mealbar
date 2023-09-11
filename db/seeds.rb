@@ -28,7 +28,7 @@ puts "creating user 3...."
 user3 = User.new(email: "roman@example.com", password: "123456", likes: "salad", dislikes: "chicken, beef, salmon")
 user3.save!
 puts "creating user 4...."
-user4 = User.new(email: "maria@example.com", password: "123456" likes: "salmon", dislikes: "onions")
+user4 = User.new(email: "maria@example.com", password: "123456", likes: "salmon", dislikes: "onions")
 user4.save!
 puts "creating user 5...."
 user5 = User.new(email: "jimena@example.com", password: "123456", likes: "chicken", dislikes: "beef")
