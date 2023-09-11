@@ -19,25 +19,25 @@ User.destroy_all
 
 # Users
 puts "creating user 1...."
-user1 = User.new(email: "miguel@example.com", password: "123456", likes: "chicken, beef, salmon", dislikes: "pasta, rice")
+user1 = User.new(email: "miguel@example.com", password: "123456")
 user1.save!
 puts "creating user 2...."
-user2 = User.new(email: "carlos@example.com", password: "123456", likes: "pasta", dislikes: "chicken, beef, salmon")
+user2 = User.new(email: "carlos@example.com", password: "123456")
 user2.save!
 puts "creating user 3...."
-user3 = User.new(email: "roman@example.com", password: "123456", likes: "salad", dislikes: "chicken, beef, salmon")
+user3 = User.new(email: "roman@example.com", password: "123456")
 user3.save!
 puts "creating user 4...."
-user4 = User.new(email: "maria@example.com", password: "123456", likes: "salmon", dislikes: "onions")
+user4 = User.new(email: "maria@example.com", password: "123456")
 user4.save!
 puts "creating user 5...."
-user5 = User.new(email: "jimena@example.com", password: "123456", likes: "chicken", dislikes: "beef")
+user5 = User.new(email: "jimena@example.com", password: "123456")
 user5.save!
 puts "creating user 6...."
-user7 = User.new(email: "juan@gmail.com", password: "123456", likes: "tacos", dislikes: "beef")
+user7 = User.new(email: "juan@gmail.com", password: "123456")
 user7.save!
 puts "creating user 7...."
-user2 = User.new(email: "valeria@gmail.com", password: "123456", likes: "chicken", dislikes: "beef")
+user2 = User.new(email: "valeria@gmail.com", password: "123456")
 user2.save!
 
 # Ingredients
