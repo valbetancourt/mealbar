@@ -19,29 +19,25 @@ User.destroy_all
 
 # Users
 puts "creating user 1...."
-user1 = User.new(email: "miguel@example.com", password: "123456")
+user1 = User.new(email: "miguel@example.com", password: "123456", likes: "chicken, beef, salmon", dislikes: "pasta, rice")
 user1.save!
 puts "creating user 2...."
-user2 = User.new(email: "carlos@example.com", password: "123456")
+user2 = User.new(email: "carlos@example.com", password: "123456", likes: "pasta", dislikes: "chicken, beef, salmon")
 user2.save!
 puts "creating user 3...."
-user3 = User.new(email: "roman@example.com", password: "123456")
+user3 = User.new(email: "roman@example.com", password: "123456", likes: "salad", dislikes: "chicken, beef, salmon")
 user3.save!
 puts "creating user 4...."
-user4 = User.new(email: "maria@example.com", password: "123456")
+user4 = User.new(email: "maria@example.com", password: "123456" likes: "salmon", dislikes: "onions")
 user4.save!
 puts "creating user 5...."
-user5 = User.new(email: "jimena@example.com", password: "123456")
+user5 = User.new(email: "jimena@example.com", password: "123456", likes: "chicken", dislikes: "beef")
 user5.save!
 puts "creating user 6...."
-file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1689560078/lmywiilsiprsptawr2wl.jpg")
-user7 = User.new(email: "juan@gmail.com", password: "123456")
-user7.photo.attach(io: file, filename: "juan.jpg", content_type: "image/jpg")
+user7 = User.new(email: "juan@gmail.com", password: "123456", likes: "tacos", dislikes: "beef")
 user7.save!
 puts "creating user 7...."
-file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1689605663/j1xwmqtjj5i9ibi6ric9.jpg")
-user2 = User.new(email: "valeria@gmail.com", password: "123456")
-user2.photo.attach(io: file, filename: "valeria.jpg", content_type: "image/jpg")
+user2 = User.new(email: "valeria@gmail.com", password: "123456", likes: "chicken", dislikes: "beef")
 user2.save!
 
 # Ingredients
@@ -114,7 +110,7 @@ tomato.save!
 
 puts "creating recipe teriyaki salmon bowl"
 file = URI.open("https://www.eatwell101.com/wp-content/uploads/2021/02/Teriyaki-Salmon-Sushi-Bowl-recipe-4.jpg")
-teriyaki_salmon_bowl = Recipe.new(name: "Teriyaki Salmon Bowl", instructions: "1. Cook rice. 2. Cook salmon. 3. Make teriyaki sauce. 4. Assemble bowl.", category: "Dinner")
+teriyaki_salmon_bowl = Recipe.new(name: "Teriyaki Salmon Bowl", instructions: "1. Cook rice. 2. Cook salmon. 3. Make teriyaki sauce. 4. Assemble bowl.", category: "hypocaloric")
 teriyaki_salmon_bowl.photo.attach(io: file, filename: "teriyaki-bowl.jpg", content_type: "image/jpg")
 teriyaki_salmon_bowl.save!
 teriyaki_salmon_bowl.recipe_ingredients.create!(ingredient_id: salmon.id, quantity: 1)
@@ -122,7 +118,7 @@ teriyaki_salmon_bowl.recipe_ingredients.create!(ingredient_id: rice.id, quantity
 
 puts "creating recipe tuscan salmon"
 file = URI.open("https://www.eatwell101.com/wp-content/uploads/2019/08/tuscan-salmon-recipe.jpg")
-tuscan_salmon = Recipe.new(name: "Tuscan Salmon", instructions: "1. Cook salmon. 2. Make sauce. 3. Assemble dish.", category: "Dinner")
+tuscan_salmon = Recipe.new(name: "Tuscan Salmon", instructions: "1. Cook salmon. 2. Make sauce. 3. Assemble dish.", category: "hypocaloric")
 tuscan_salmon.photo.attach(io: file, filename: "tuscan-salmon.jpg", content_type: "image/jpg")
 tuscan_salmon.save!
 tuscan_salmon.recipe_ingredients.create!(ingredient_id: salmon.id, quantity: 1)
@@ -130,7 +126,7 @@ tuscan_salmon.recipe_ingredients.create!(ingredient_id: onion.id, quantity: 1)
 
 puts "creating recipe honey garlic chicken"
 file = URI.open("https://www.recipetineats.com/wp-content/uploads/2020/02/Honey-Garlic-Chicken-Breast_5-SQ.jpg")
-honey_garlic_chicken = Recipe.new(name: "Honey Garlic Chicken", instructions: "1. Cook chicken. 2. Make sauce. 3. Assemble dish.", category: "Dinner")
+honey_garlic_chicken = Recipe.new(name: "Honey Garlic Chicken", instructions: "1. Cook chicken. 2. Make sauce. 3. Assemble dish.", category: "hypocaloric")
 honey_garlic_chicken.photo.attach(io: file, filename: "honey-garlic-chicken.jpg", content_type: "image/jpg")
 honey_garlic_chicken.save!
 honey_garlic_chicken.recipe_ingredients.create!(ingredient_id: chicken.id, quantity: 4)
@@ -139,7 +135,7 @@ honey_garlic_chicken.recipe_ingredients.create!(ingredient_id: honey.id, quantit
 
 puts "creating recipe chicken pasta"
 file = URI.open("https://skinnyspatula.com/wp-content/uploads/2022/10/Creamy_Garlic_Chicken_Pasta_0-720x720.jpg")
-chicken_pasta = Recipe.new(name: "Chicken Pasta", instructions: "1. Cook pasta. 2. Cook chicken. 3. Make sauce. 4. Assemble dish.", category: "Dinner")
+chicken_pasta = Recipe.new(name: "Chicken Pasta", instructions: "1. Cook pasta. 2. Cook chicken. 3. Make sauce. 4. Assemble dish.", category: "hypocaloric")
 chicken_pasta.photo.attach(io: file, filename: "chicken-pasta.jpg", content_type: "image/jpg")
 chicken_pasta.save!
 chicken_pasta.recipe_ingredients.create!(ingredient_id: chicken.id, quantity: 6)
@@ -147,7 +143,7 @@ chicken_pasta.recipe_ingredients.create!(ingredient_id: pasta.id, quantity: 600)
 
 puts "creating recipe salmon pasta"
 file = URI.open("https://www.eatwell101.com/wp-content/uploads/2017/08/pasta-with-salmon-recipes.jpg")
-salmon_pasta = Recipe.new(name: "Salmon Pasta", instructions: "1. Cook pasta. 2. Cook salmon. 3. Make sauce. 4. Assemble dish.", category: "Dinner")
+salmon_pasta = Recipe.new(name: "Salmon Pasta", instructions: "1. Cook pasta. 2. Cook salmon. 3. Make sauce. 4. Assemble dish.", category: "traditional")
 salmon_pasta.photo.attach(io: file, filename: "salmon-pasta.jpg", content_type: "image/jpg")
 salmon_pasta.save!
 salmon_pasta.recipe_ingredients.create!(ingredient_id: salmon.id, quantity: 1)
@@ -157,7 +153,7 @@ salmon_pasta.recipe_ingredients.create!(ingredient_id: pasta.id, quantity: 600)
 
 puts "creating recipe fish burger"
 file = URI.open("https://www.kitchensanctuary.com/wp-content/uploads/2014/01/Crispy-Fish-Burger-with-Shoestring-Fries-Recipe-square-FS-500x500.jpg")
-fish_burger = Recipe.new(name: "Fish Burger", instructions: "1. Cook fish. 2. Assemble burger.", category: "Dinner")
+fish_burger = Recipe.new(name: "Fish Burger", instructions: "1. Cook fish. 2. Assemble burger.", category: "traditional")
 fish_burger.photo.attach(io: file, filename: "fish-burger.jpg", content_type: "image/jpg")
 fish_burger.save!
 fish_burger.recipe_ingredients.create!(ingredient_id: salmon.id, quantity: 1)
@@ -166,7 +162,7 @@ fish_burger.recipe_ingredients.create!(ingredient_id: avocado.id, quantity: 1)
 
 puts "creating recipe wellington beef"
 file = URI.open("https://hips.hearstapps.com/del.h-cdn.co/assets/18/11/2048x1152/hd-aspect-1520886453-beef-wellington-delish.jpg?resize=1200:*")
-wellington_beef = Recipe.new(name: "Wellington Beef", instructions: "1. Cook beef. 2. Assemble dish.", category: "Dinner")
+wellington_beef = Recipe.new(name: "Wellington Beef", instructions: "1. Cook beef. 2. Assemble dish.", category: "traditional")
 wellington_beef.photo.attach(io: file, filename: "wellington-beef.jpg", content_type: "image/jpg")
 wellington_beef.save!
 wellington_beef.recipe_ingredients.create!(ingredient_id: beef.id, quantity: 1)
@@ -174,7 +170,7 @@ wellington_beef.recipe_ingredients.create!(ingredient_id: butter.id, quantity: 1
 
 puts "creating recipe tacos"
 file = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/001_Tacos_de_carnitas%2C_carne_asada_y_al_pastor.jpg/1200px-001_Tacos_de_carnitas%2C_carne_asada_y_al_pastor.jpg")
-tacos = Recipe.new(name: "Tacos", instructions: "1. Cook beef. 2. Assemble tacos.", category: "Dinner")
+tacos = Recipe.new(name: "Tacos", instructions: "1. Cook beef. 2. Assemble tacos.", category: "traditional")
 tacos.photo.attach(io: file, filename: "tacos.jpg", content_type: "image/jpg")
 tacos.save!
 tacos.recipe_ingredients.create!(ingredient_id: beef.id, quantity: 1)
@@ -182,7 +178,7 @@ tacos.recipe_ingredients.create!(ingredient_id: onion.id, quantity: 1)
 
 puts "creating recipe chicken salad"
 file = URI.open("https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2020/05/Chicken-Salad-3.jpg")
-chicken_salad = Recipe.new(name: "Chicken Salad", instructions: "1. Cook chicken. 2. Assemble salad.", category: "Dinner")
+chicken_salad = Recipe.new(name: "Chicken Salad", instructions: "1. Cook chicken. 2. Assemble salad.", category: "traditional")
 chicken_salad.photo.attach(io: file, filename: "chicken_salad.jpg", content_type: "image/jpg")
 chicken_salad.save!
 chicken_salad.recipe_ingredients.create!(ingredient_id: chicken.id, quantity: 1)
@@ -190,16 +186,26 @@ chicken_salad.recipe_ingredients.create!(ingredient_id: avocado.id, quantity: 1)
 
 puts "creating recipe salad"
 file = URI.open("https://images.immediate.co.uk/production/volatile/sites/30/2014/05/Epic-summer-salad-hub-2646e6e.jpg")
-salad = Recipe.new(name: "Salad", instructions: "1. Assemble salad.", category: "Dinner")
+salad = Recipe.new(name: "Salad", instructions: "1. Assemble salad.", category: "vegetarian")
 salad.photo.attach(io: file, filename: "salad.jpg", content_type: "image/jpg")
 salad.save!
 salad.recipe_ingredients.create!(ingredient_id: avocado.id, quantity: 1)
 salad.recipe_ingredients.create!(ingredient_id: tomato.id, quantity: 1)
 salad.recipe_ingredients.create!(ingredient_id: onion.id, quantity: 1)
 
+puts "creating recipe vegan burger"
+file = URI.open("https://lovingitvegan.com/wp-content/uploads/2022/09/Vegan-Burger-Square.jpg")
+vegan_burger = Recipe.new(name: "Vegan Burger", instructions: "1. Assemble burger.", category: "vegan")
+vegan_burger.photo.attach(io: file, filename: "vegan-burger.jpg", content_type: "image/jpg")
+vegan_burger.save!
+vegan_burger.recipe_ingredients.create!(ingredient_id: avocado.id, quantity: 1)
+vegan_burger.recipe_ingredients.create!(ingredient_id: tomato.id, quantity: 1)
+vegan_burger.recipe_ingredients.create!(ingredient_id: onion.id, quantity: 1)
+vegan_burger.recipe_ingredients.create!(ingredient_id: bread.id, quantity: 1)
+
 # Mealplans
 puts "creating mealplan 1"
-mealplan1 = Mealplan.new(user_id: user1.id, initial_date: Date.today, days: 7)
+mealplan1 = Mealplan.new(user_id: user1.id, initial_date: Date.today, days: 7, category: "hypocaloric")
 mealplan1.save!
 # TODO
 # refactor this
@@ -210,7 +216,7 @@ mealplan1.mealplan_recipes.create!(recipe: chicken_pasta)
 mealplan1.mealplan_recipes.create!(recipe: salmon_pasta)
 
 puts "creating mealplan 2"
-mealplan2 = Mealplan.new(user_id: user2.id, initial_date: Date.today, days: 7)
+mealplan2 = Mealplan.new(user_id: user2.id, initial_date: Date.today, days: 7, category: "traditional")
 mealplan2.save!
 # TODO
 # refactor this
