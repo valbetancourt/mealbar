@@ -1,10 +1,16 @@
-<div class="container">
-    <div class="row">
-      <div class="col">
-        <p>my meal plans</p>
-          <%= @mealplans.take(5).each do |mealplan| %>
-            <p><%= mealplan.current_user.name %></p>
-          <% end %>
+<div class="container row g-3">
+  <div class="col-9">
+    <%= @new_recipe_name.each do |name| %>
+      <div class="card">
+        <div class="card-header">
+          <%= name %>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Special title treatment</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
       </div>
-    </div>
+    <% end %>
+  </div>
 </div>
