@@ -4,19 +4,26 @@ client = OpenAI::Client.new(
   request_timeout: 240
 )
 
+require "json"
+
 days = 3
 
 like = "onions, salmon"
 
 dislike = "tomatoes, chicken"
 
-client.chat(
+category = "traditional"
+
+response = client.chat(
   parameters: {
     model: "gpt-3.5-turbo",
-    messages: [ role: "user", content: "Create a #{days}-days meal plan"],
+    messages: [ role: "user", content: "Create a 10 Recipes plan with the following preferences: include #{like} and avoid #{dislike}. The format must be in a JSON object with the following keys: recipe name, ingredients, quantities and instructions. Additionally, provide a shopping list with the ingredients and quantities needed for the entire week."],
     temperature: 0.7
   }
 )
+response.gsub("\n", "")
+response_json = JSON.parse(response)
+p response_json
 
 # client = OpenAI::Client.new(
 #   access_token: '',
