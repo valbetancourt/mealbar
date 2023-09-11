@@ -23,6 +23,7 @@ class MealplansController < ApplicationController
 
   def show
     @mealplan = Mealplan.find(params[:id])
+    @recipes = Recipe.all
   end
 
   def update
