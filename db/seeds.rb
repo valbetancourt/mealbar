@@ -105,9 +105,48 @@ puts "creating ingredient tomato"
 tomato = Ingredient.new(name: "Tomato")
 tomato.save!
 
+puts "creating ingredient riccotta"
+ricotta = Ingredient.new(name: "Ricotta")
+ricotta.save!
+
+puts "creating ingredient zucchini"
+zucchini = Ingredient.new(name: "Zucchini")
+zucchini.save!
+
+puts "creating ingredient green olives"
+olives = Ingredient.new(name: "Green Olives")
+olives.save!
+
+puts "creating ingredient cherry tomatoes"
+cherry_tomatoes = Ingredient.new(name: "Cherry Tomatoes")
+cherry_tomatoes.save!
+
+puts "creating ingredient coconut milk"
+coconut_milk = Ingredient.new(name: "Coconut Milk")
+coconut_milk.save!
+
+puts "creating ingredient mushrooms"
+mushrooms = Ingredient.new(name: "Mushrooms")
+mushrooms.save!
+
+puts "creating ingredient lime juice"
+lime_juice = Ingredient.new(name: "Lime Juice")
+lime_juice.save!
+
+puts "creating ingredient cucumber"
+cucumber = Ingredient.new(name: "Cucumber")
+cucumber.save!
+
+puts "creating ingredient oats"
+oats = Ingredient.new(name: "Oats")
+oats.save!
+
+puts "creating ingredient berries"
+berries = Ingredient.new(name: "Berries")
+berries.save!
 
 # Recipes
-
+#----------------------------------------------- hypocaloric recipes ----------------------------------------------------
 puts "creating recipe teriyaki salmon bowl"
 file = URI.open("https://www.eatwell101.com/wp-content/uploads/2021/02/Teriyaki-Salmon-Sushi-Bowl-recipe-4.jpg")
 teriyaki_salmon_bowl = Recipe.new(name: "Teriyaki Salmon Bowl", instructions: "1. Cook rice. 2. Cook salmon. 3. Make teriyaki sauce. 4. Assemble bowl.", category: "hypocaloric")
@@ -132,14 +171,27 @@ honey_garlic_chicken.save!
 honey_garlic_chicken.recipe_ingredients.create!(ingredient_id: chicken.id, quantity: 4)
 honey_garlic_chicken.recipe_ingredients.create!(ingredient_id: honey.id, quantity: 3)
 
+puts "creating recipe Honey Garlic Pork Rice Bowl"
+file = URI.open("https://www.eatwell101.com/wp-content/uploads/2022/09/Pork-Rice-Bowl.jpg")
+pork_rice_bowl = Recipe.new(name: "Pork Rice Bowl", instructions: "1. To make the honey garlic pork bites: Add the diced pork to a large salad bowl with cornstarch, salt, and pepper. Mix to evenly coat all the pork pieces. 2. Heat the oil in a large skillet over medium-high heat. Melt butter into the oil and add the seasoned pork cubes and cook on all sides until golden brown, for about 6-8 minutes. You may need to work in batches to avoid overcrowding the pan and steaming the pork bites instead of browning them. 3. Once the pork is done cooking, pour over the garlic, honey, chicken stock (or beef stock), lemon juice, and hot sauce (if using) and stir to completely coat; allow the sauce to simmer for a couple of minutes to meld all the flavors and reduce a little until it sticks to the pork bites. 4. Garnish the honey garlic pork bites with fresh chopped parsley and red chili pepper flakes, then serve over rice and steamed broccoli. Enjoy! ❤️", category: "hypocaloric")
+pork_rice_bowl.photo.attach(io: file, filename: "pork_rice_bowl.jpg", content_type: "image/jpg")
+pork_rice_bowl.save!
+pork_rice_bowl.recipe_ingredients.create!(ingredient_id: rice.id, quantity: 6)
+pork_rice_bowl.recipe_ingredients.create!(ingredient_id: garlic.id, quantity: 600)
+pork_rice_bowl.recipe_ingredients.create!(ingredient_id: honey.id, quantity: 600)
 
-puts "creating recipe chicken pasta"
-file = URI.open("https://skinnyspatula.com/wp-content/uploads/2022/10/Creamy_Garlic_Chicken_Pasta_0-720x720.jpg")
-chicken_pasta = Recipe.new(name: "Chicken Pasta", instructions: "1. Cook pasta. 2. Cook chicken. 3. Make sauce. 4. Assemble dish.", category: "hypocaloric")
-chicken_pasta.photo.attach(io: file, filename: "chicken-pasta.jpg", content_type: "image/jpg")
-chicken_pasta.save!
-chicken_pasta.recipe_ingredients.create!(ingredient_id: chicken.id, quantity: 6)
-chicken_pasta.recipe_ingredients.create!(ingredient_id: pasta.id, quantity: 600)
+puts "creating recipe Chicken Meatballs"
+file = URI.open("https://www.eatwell101.com/wp-content/uploads/2019/03/Meal-Prep-Garlic-Butter-Chicken-Meatballs.jpg")
+chicken_meatballs = Recipe.new(name: "Chicken Meatballs", instructions: "1. Cook zucchini 2. Mix ingredients 3.Cook chicken meatballs 4. Enjoy", category: "hypocaloric")
+chicken_meatballs.photo.attach(io: file, filename: "chicken_meatballs.jpg", content_type: "image/jpg")
+chicken_meatballs.save!
+chicken_meatballs.recipe_ingredients.create!(ingredient_id: beef.id, quantity: 6)
+chicken_meatballs.recipe_ingredients.create!(ingredient_id: garlic.id, quantity: 600)
+chicken_meatballs.recipe_ingredients.create!(ingredient_id: butter.id, quantity: 6)
+chicken_meatballs.recipe_ingredients.create!(ingredient_id: zucchini.id, quantity: 6)
+
+
+#----------------------------------------------- traditional recipes ----------------------------------------------------
 
 puts "creating recipe salmon pasta"
 file = URI.open("https://www.eatwell101.com/wp-content/uploads/2017/08/pasta-with-salmon-recipes.jpg")
@@ -184,7 +236,35 @@ chicken_salad.save!
 chicken_salad.recipe_ingredients.create!(ingredient_id: chicken.id, quantity: 1)
 chicken_salad.recipe_ingredients.create!(ingredient_id: avocado.id, quantity: 1)
 
-puts "creating recipe salad"
+puts "creating recipe Salmon Rice Bowl"
+file = URI.open("https://www.eatwell101.com/wp-content/uploads/2022/06/easy-Salmon-Rice-Bowl-recipe.jpg")
+salmon_rice_bowl = Recipe.new(name: "Salmon Rice Bowl", instructions: "1. To make the salmon rice bowl: Place the cooked salmon in a bowl or shallow plate and remove the skin. Use your fork to flake the fish into smaller pieces. Evenly spread out the fish throughout the bowl.
+  2. Add your leftover rice right over the salmon, then place an ice cube in the center, nestling it into the rice.
+  3. Cover the bowl with parchment paper and heat in the microwave on high for 2 to 2 1/2 minutes.
+  4. Remove the salmon bowl from the microwave and discard any remaining ice.
+  5. Drizzle soy sauce, sesame oil, mayonnaise, and sriracha on top of the rice and mix with rice and salmon until fully combined.
+  6. Top the salmon rice bowl with sliced avocado, sesame seeds, and more condiments. Enjoy! ❤️", category: "traditional")
+salmon_rice_bowl.photo.attach(io: file, filename: "salmon_rice_bowl.jpg", content_type: "image/jpg")
+salmon_rice_bowl.save!
+salmon_rice_bowl.recipe_ingredients.create!(ingredient_id: salmon.id, quantity: 1)
+salmon_rice_bowl.recipe_ingredients.create!(ingredient_id: avocado.id, quantity: 1)
+salmon_rice_bowl.recipe_ingredients.create!(ingredient_id: rice.id, quantity: 1)
+
+#----------------------------------------------- vegetarian recipes ----------------------------------------------------
+puts "creating recipe sandwich with veggies"
+file = URI.open("https://www.eatwell101.com/wp-content/uploads/2014/04/Vegetarian-Sandwich-recipe-500x400.jpg")
+veggie_sandwich = Recipe.new(name: "Sandiwch with veggies", instructions: "1. Mix ricotta with lemon zest, 2 teaspoons olive oil, salt and pepper and set aside.
+  2. Toast the bread slices and place on a cutting board. Spread the ricotta mixture on both slices.
+  3. Cut the avocado in half, remove the pit and cut each half into slices and arrange on bread.
+  4. Spread halved tomatoes over the avocado slices, top with red onion.
+  5. Top each sandwich with diced lemon, sesame seeds and poppy seeds. Pour a drizzle of olive oil , garnish with basil and serve. Enjoy!", category: "vegetarian")
+veggie_sandwich.photo.attach(io: file, filename: "veggie_sandwich.jpg", content_type: "image/jpg")
+veggie_sandwich.save!
+veggie_sandwich.recipe_ingredients.create!(ingredient_id: avocado.id, quantity: 1)
+veggie_sandwich.recipe_ingredients.create!(ingredient_id: tomato.id, quantity: 1)
+veggie_sandwich.recipe_ingredients.create!(ingredient_id: ricotta.id, quantity: 1)
+
+puts "creating recipe vegetarian sandwich"
 file = URI.open("https://images.immediate.co.uk/production/volatile/sites/30/2014/05/Epic-summer-salad-hub-2646e6e.jpg")
 salad = Recipe.new(name: "Salad", instructions: "1. Assemble salad.", category: "vegetarian")
 salad.photo.attach(io: file, filename: "salad.jpg", content_type: "image/jpg")
@@ -192,6 +272,58 @@ salad.save!
 salad.recipe_ingredients.create!(ingredient_id: avocado.id, quantity: 1)
 salad.recipe_ingredients.create!(ingredient_id: tomato.id, quantity: 1)
 salad.recipe_ingredients.create!(ingredient_id: onion.id, quantity: 1)
+
+puts "creating recipe stuffed zucchini"
+file = URI.open("https://www.eatwell101.com/wp-content/uploads/2013/08/Recipe-for-Stuffed-Zucchini--500x400.jpg")
+stuffed_zucchini = Recipe.new(name: "Stuffed Zucchini", instructions: "1. Wash all vegetables, cut the tops off the zucchini and scoop out the center of the squash. Take care not to cut through the outer skin of the zucchini. You can use a melon baller to scoop out the zucchini, but a small spoon will also work. Roughly chop the scooped zucchini flesh for the filling.
+  2. Dice the eggplant and tomatoes. Peel and slice the onions. Crush the slice of bread to make crumbs. Chop the basil and add to vegetables. Gather everything in a large bowl and season with olive oil, salt and pepper.
+  3. Fill zucchini with the vegetable mix, put the hat back on top and place zucchini in a baking dish.
+  4. Line the bottom of the dish with crushed tomatoes, olive oil and chopped basil.
+  5. Bake for 45 minutes at 360°F (180°C). Check to see if the zucchini is cooked. The flesh of the squash should pierce easily with a knife and become slightly translucent.", category: "vegetarian")
+stuffed_zucchini.photo.attach(io: file, filename: "stuffed_zucchini.jpg", content_type: "image/jpg")
+stuffed_zucchini.save!
+stuffed_zucchini.recipe_ingredients.create!(ingredient_id: bread.id, quantity: 1)
+stuffed_zucchini.recipe_ingredients.create!(ingredient_id: zucchini.id, quantity: 1)
+stuffed_zucchini.recipe_ingredients.create!(ingredient_id: onion.id, quantity: 1)
+
+puts "creating recipe orzo pasta salad"
+file = URI.open("https://www.eatwell101.com/wp-content/uploads/2023/07/greek-orzo-pasta-salad-recipe-500x400.jpg")
+orzo_pasta = Recipe.new(name: "Orzo Pasta Salad", instructions: "1. To make the orzo pasta salad: Cook pasta according to package directions, in boiling salted water. Drain the orzo and toss with a little oil to prevent sticking. Arrange all the salad ingredients in a large salad bowl.
+  2. Mix olive oil, lemon juice, and a little caper water in a jar, then pour over the orzo salad.
+  3. Toss all ingredients together! Chill the orzo pasta salad before serving. Enjoy! ❤️", category: "vegetarian")
+orzo_pasta.photo.attach(io: file, filename: "orzo_pasta.jpg", content_type: "image/jpg")
+orzo_pasta.save!
+orzo_pasta.recipe_ingredients.create!(ingredient_id: pasta.id, quantity: 1)
+orzo_pasta.recipe_ingredients.create!(ingredient_id: olive_oil.id, quantity: 1)
+orzo_pasta.recipe_ingredients.create!(ingredient_id: cherry_tomatoes.id, quantity: 1)
+
+puts "creating recipe peanut butter noodles"
+file = URI.open("https://www.eatwell101.com/wp-content/uploads/2022/05/peanut-butter-noodles-recipe-2-500x400.jpg")
+pb_noodles = Recipe.new(name: "Peanut Butter Noodles", instructions: "1. To make the peanut butter noodles: Bring a large pot of water to a boil and cook the rice noodles according to package instructions.
+  2. Add minced garlic to a saute pan with 1 tablespoon of olive oil. Saute garlic over low heat for 2-3 minutes or until golden brown. Add in the grated ginger and saute for 1-2 more minutes.
+  3. Remove the skillet from heat and add in all remaining sauce ingredients: 1/3 cup of hot water, peanut butter, tamari, rice vinegar, sesame oil, sriracha, and maple syrup, and whisk together until smooth. Add more water as needed to reach your desired consistency.
+  4. Taste and adjust seasoning to your liking with more tamari, sriracha, or other seasonings.
+  5. Add half of the sauce to cooked rice noodles and mix together. Adjust the amount of sauce as needed
+  6. Divide peanut butter noodles into bowls or plates and serve with crushed peanuts, scallions, and red pepper flakes and enjoy! ❤️", category: "vegetarian")
+pb_noodles.photo.attach(io: file, filename: "pb_noodles.jpg", content_type: "image/jpg")
+pb_noodles.save!
+pb_noodles.recipe_ingredients.create!(ingredient_id: pasta.id, quantity: 1)
+pb_noodles.recipe_ingredients.create!(ingredient_id: olive_oil.id, quantity: 1)
+pb_noodles.recipe_ingredients.create!(ingredient_id: garlic.id, quantity: 1)
+
+puts "creating recipe Thai Coconut Soup With Mushrooms"
+file = URI.open("https://www.eatwell101.com/wp-content/uploads/2022/10/thai-coconut-mushroom-soup-recipe-1-500x400.jpg")
+coconut_soup = Recipe.new(name: "Thai Coconut Soup With Mushrooms", instructions: "1. To make the Thai coconut soup: Heat oil in a large pot or Dutch oven over medium heat. Add ginger, curry paste, and lemongrass; cook and stir in the hot oil for 1 minute.
+  2. Gradually stir in the vegetable broth, then stir in fish sauce; reduce heat to low and simmer the soup for 15 minutes.
+  3. Add coconut milk and sliced mushrooms; cook and stir until mushrooms are soft, about 5 minutes.
+  4. Stir in lime juice; season with salt and garnish with cilantro.  Serve the Thai coconut soup immediately. Enjoy! ❤️", category: "vegetarian")
+coconut_soup.photo.attach(io: file, filename: "coconut_soup.jpg", content_type: "image/jpg")
+coconut_soup.save!
+coconut_soup.recipe_ingredients.create!(ingredient_id: coconut_milk.id, quantity: 1)
+coconut_soup.recipe_ingredients.create!(ingredient_id: mushrooms.id, quantity: 1)
+coconut_soup.recipe_ingredients.create!(ingredient_id: lime_juice.id, quantity: 1)
+
+#----------------------------------------------- vegan recipes ----------------------------------------------------
 
 puts "creating recipe vegan burger"
 file = URI.open("https://lovingitvegan.com/wp-content/uploads/2022/09/Vegan-Burger-Square.jpg")
@@ -203,6 +335,66 @@ vegan_burger.recipe_ingredients.create!(ingredient_id: tomato.id, quantity: 1)
 vegan_burger.recipe_ingredients.create!(ingredient_id: onion.id, quantity: 1)
 vegan_burger.recipe_ingredients.create!(ingredient_id: bread.id, quantity: 1)
 
+puts "creating recipe Cucumber Avocado Salad"
+file = URI.open("https://www.eatwell101.com/wp-content/uploads/2021/08/Cucumber-Avocado-Salad-recipe.jpg")
+cucumber_avo_salad = Recipe.new(name: "Cucumber Avocado Salad", instructions: "1. To make the avocado cucumber salad: Combine all of the salad ingredients together in a salad bowl.
+  2. In a small mason jar, mix together the dressing ingredients to combine well, and pour over the avocado cucumber salad. Season with extra salt, if desired. Serve the avocado cucumber salad immediately or chill in the refrigerator until serving. Enjoy!", category: "vegan")
+cucumber_avo_salad.photo.attach(io: file, filename: "cucumber_avo_salad.jpg", content_type: "image/jpg")
+cucumber_avo_salad.save!
+cucumber_avo_salad.recipe_ingredients.create!(ingredient_id: avocado.id, quantity: 1)
+cucumber_avo_salad.recipe_ingredients.create!(ingredient_id: cucumber.id, quantity: 1)
+cucumber_avo_salad.recipe_ingredients.create!(ingredient_id: lime_juice.id, quantity: 1)
+cucumber_avo_salad.recipe_ingredients.create!(ingredient_id: olive_oil.id, quantity: 1)
+
+puts "creating recipe Vegan Overnight Oats"
+file = URI.open("https://www.eatwell101.com/wp-content/uploads/2018/02/vegan-overnight-oatmeal-recipe.jpg")
+overnight_oats = Recipe.new(name: "Overnight Oats", instructions: "1. Combine all ingredients in an airtight container and mix well. Cover, and refrigerate overnight.
+  2. Serve cold with additional berries, almonds and mixed seeds and a good drizzle of maple syrup. Enjoy!", category: "vegan")
+overnight_oats.photo.attach(io: file, filename: "overnight_oats.jpg", content_type: "image/jpg")
+overnight_oats.save!
+overnight_oats.recipe_ingredients.create!(ingredient_id: oats.id, quantity: 1)
+overnight_oats.recipe_ingredients.create!(ingredient_id: coconut_milk.id, quantity: 1)
+overnight_oats.recipe_ingredients.create!(ingredient_id: berries.id, quantity: 1)
+
+puts "creating recipe Vegetable Soup"
+file = URI.open("https://www.eatwell101.com/wp-content/uploads/2022/01/Vegetable-Soup-recipe-2.jpg")
+vegetable_soup = Recipe.new(name: "Vegetable Soup", instructions: "1. To make the vegetable soup: In a large stockpot or Dutch oven, add the olive oil over medium heat and sauté the onions, celery, carrot, and garlic for 4-5 minutes.
+  2. Add in the rest of the ingredients: diced tomatoes, diced potatoes, and zucchini. Cover with vegetable broth, add salt, pepper, thyme, and bay leaves.
+  3. Bring the vegetable soup to a boil, then reduce to a simmer and cook covered for 30 minutes or until potatoes are almost fully tender.
+  4. Add corn and cook 5 minutes longer. Adjust seasoning with salt and pepper. Sprinkle the vegetable soup with fresh chopped parsley and serve immediately.", category: "vegan")
+vegetable_soup.photo.attach(io: file, filename: "vegetable_soup.jpg", content_type: "image/jpg")
+vegetable_soup.save!
+vegetable_soup.recipe_ingredients.create!(ingredient_id: olive_oil.id, quantity: 1)
+vegetable_soup.recipe_ingredients.create!(ingredient_id: onion.id, quantity: 1)
+vegetable_soup.recipe_ingredients.create!(ingredient_id: garlic.id, quantity: 1)
+vegetable_soup.recipe_ingredients.create!(ingredient_id: zucchini.id, quantity: 1)
+vegetable_soup.recipe_ingredients.create!(ingredient_id: tomato.id, quantity: 1)
+
+puts "creating recipe Veggie Fried Rice"
+file = URI.open("https://www.eatwell101.com/wp-content/uploads/2022/04/Veggie-Fried-Rice-recipe-1.jpg")
+veggie_rice = Recipe.new(name: "Veggie Fried Rice", instructions: "1. To make the vegetable fried rice: In a wok or deep skillet, heat up the oil over high heat and cook carrots, onions, and garlic until onions are translucent. In the meantime, beat the eggs in a bowl.
+  2. Add bell peppers and broccoli florets and cook for an additional 3 minutes. Push all of the cooked vegetables to the side of the pan.
+  3. Pour pour the beaten eggs into the cleared half of the pan. Scramble the eggs and combine them with the rest of the veggies.
+  4. Add edamame (or peas), corn, rice, soy sauce, sesame oil, and pepper. Mix well and let the rice cook until slightly crispy.
+  5. Sprinkle the veggie fried rice with chopped scallions or cilantro. Serve immediately – Enjoy!", category: "vegan")
+veggie_rice.photo.attach(io: file, filename: "veggie_rice.jpg", content_type: "image/jpg")
+veggie_rice.save!
+veggie_rice.recipe_ingredients.create!(ingredient_id: garlic.id, quantity: 1)
+veggie_rice.recipe_ingredients.create!(ingredient_id: onion.id, quantity: 1)
+veggie_rice.recipe_ingredients.create!(ingredient_id: rice.id, quantity: 1)
+
+puts "creating recipe Spring Rolls"
+file = URI.open("https://www.eatwell101.com/wp-content/uploads/2016/05/best-spring-roll-recipe.jpg")
+spring_rolls = Recipe.new(name: "Spring Rolls", instructions: "1. Soak rice paper sheets in warm water until soft. About 30 seconds to one minute. Process one sheet at a time otherwise they will stick all together.
+  2. Lay a rice paper sheet out on a clean surface and place a small amount of each ingredient in the center. Play with different combinations of ingredients, add  lime juice and chili sauce if you like.
+  3. Fold both sides over the filling, and gently roll up. Serve with your favorite spicy hot dipping sauce and enjoy!", category: "vegan")
+spring_rolls.photo.attach(io: file, filename: "spring_rolls.jpg", content_type: "image/jpg")
+spring_rolls.save!
+spring_rolls.recipe_ingredients.create!(ingredient_id: cucumber.id, quantity: 1)
+spring_rolls.recipe_ingredients.create!(ingredient_id: avocado.id, quantity: 1)
+
+#------------------------------------------------------------------------------------------------------------------------
+
 # Mealplans
 puts "creating mealplan 1"
 mealplan1 = Mealplan.new(user_id: user1.id, initial_date: Date.today, days: 7, category: "hypocaloric")
@@ -212,7 +404,7 @@ mealplan1.save!
 mealplan1.mealplan_recipes.create!(recipe: teriyaki_salmon_bowl)
 mealplan1.mealplan_recipes.create!(recipe: tuscan_salmon)
 mealplan1.mealplan_recipes.create!(recipe: honey_garlic_chicken)
-mealplan1.mealplan_recipes.create!(recipe: chicken_pasta)
+mealplan1.mealplan_recipes.create!(recipe: pork_rice_bowl)
 mealplan1.mealplan_recipes.create!(recipe: salmon_pasta)
 
 puts "creating mealplan 2"
