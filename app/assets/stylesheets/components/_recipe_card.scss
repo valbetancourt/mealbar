@@ -30,7 +30,6 @@
 .cont_modal {
   position: relative;
   width: 300px;
-  height: 400px;
   -webkit-transition: all 0.5s;
   -o-transition: all 0.5s;
   transition: all 0.5s;
@@ -42,8 +41,8 @@ transition-delay: 0.7s;
 
 .cont_photo {
   position: relative;
-  width: 300px;
-  height: 440px;
+  width: 250px;
+  height: 280px;
   overflow: hidden;
   background-color: #eee;
   border-radius:5px;
@@ -66,7 +65,7 @@ border-radius:5px ;
 }
 .cont_img_back > img {
   width: 100%;
-  height: 240px;
+  height: 100%;
 opacity: 0.7;
 -webkit-transition: all 0.5s;
 -o-transition: all 0.5s;
@@ -78,32 +77,32 @@ transition: all 1s;
   transform: scale(1.5);
 }
 
-.cont_text_ingredients {
-position: absolute;
-  width: 150px;
-top: 0px;
-left: 290px;
-  margin-left: 10px;
-  height: 400px;
-  float: left;
-  border-radius:5px ;
-z-index: 3;
-box-shadow: 1px 1px  20px  -5px  rgba(0,0,0,0.2);
+// .cont_text_ingredients {
+// position: absolute;
+//   width: 150px;
+// top: 0px;
+// left: 290px;
+//   margin-left: 10px;
+//   height: 400px;
+//   float: left;
+//   border-radius:5px ;
+// z-index: 3;
+// box-shadow: 1px 1px  20px  -5px  rgba(0,0,0,0.2);
 
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fbf9f9+28,e8eaed+100 */
-background: rgb(251,249,249); /* Old browsers */
-background: -moz-linear-gradient(-45deg,  rgba(251,249,249,1) 28%, rgba(232,234,237,1) 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(-45deg,  rgba(251,249,249,1) 28%,rgba(232,234,237,1) 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(135deg,  rgba(251,249,249,1) 28%,rgba(232,234,237,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+//   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fbf9f9+28,e8eaed+100 */
+// background: rgb(251,249,249); /* Old browsers */
+// background: -moz-linear-gradient(-45deg,  rgba(251,249,249,1) 28%, rgba(232,234,237,1) 100%); /* FF3.6-15 */
+// background: -webkit-linear-gradient(-45deg,  rgba(251,249,249,1) 28%,rgba(232,234,237,1) 100%); /* Chrome10-25,Safari5.1-6 */
+// background: linear-gradient(135deg,  rgba(251,249,249,1) 28%,rgba(232,234,237,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 
--webkit-transition: all 0.5s;
--o-transition: all 0.5s;
-transition: all 0.5s;
-transition-delay: 0.7s;
--webkit-transition-delay: 0.7s;
--o-transition-delay: 0.7s;
-transition-delay: 0.7s;
-}
+// -webkit-transition: all 0.5s;
+// -o-transition: all 0.5s;
+// transition: all 0.5s;
+// transition-delay: 0.7s;
+// -webkit-transition-delay: 0.7s;
+// -o-transition-delay: 0.7s;
+// transition-delay: 0.7s;
+// }
 
 .cont_mins{
 position: relative;
@@ -114,9 +113,9 @@ float: left;
 .sub_mins {
   position: relative;
   float: left;
-  width: 60px;
-  height: 60px;
-  background-color: rgba(255,253,112,0.8);
+  width: 50px;
+  height: 50px;
+  background-color: #7d1538c5;
 border-radius:50% ;
 margin: 16px;
 margin-bottom: 0px;
@@ -136,19 +135,21 @@ transition-delay: 1s;
   font-size: 24px;
 margin-top: 7px;
   margin-bottom: -15px;
+  color: #fff;
 }
 
 .sub_mins > span {
-  font-size: 9px;
+  font-size: 8px;
   font-weight: 700;
+  color: #fff;
 }
 
 .cont_servings {
   position: relative;
   float: left;
-  width: 60px;
-  height: 60px;
-  background-color: rgba(255,253,112,0.8);
+  width: 50px;
+  height: 50px;
+  background-color: #7d1538c5;
 border-radius:50% ;
 margin: 16px;
 opacity: 0;
@@ -165,11 +166,13 @@ transition-delay: 0.7s;
   font-size: 24px;
 margin-top: 5px;
   margin-bottom: -15px;
+  color: #fff;
 }
 
 .cont_servings > span {
-  font-size: 9px;
+  font-size: 7px;
   font-weight: 700;
+  color: #fff;
 }
 .cont_icon_right {
 //   position: relative;
@@ -182,15 +185,15 @@ margin-top: 5px;
 //   border-top-right-radius: 50%;
 
   float: right;
-  font-size: 20px;
+  font-size: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 45px;
-  width: 40px;
+  height: 30px;
+  width: 25px;
   position: absolute;
-  right: 20px;
-  top: 225px;
+  right: 6px;
+  top: 4px;
   background-color: black;
   border-top-left-radius: 50%;
   border-bottom-left-radius: 50%;
@@ -227,9 +230,11 @@ transition-delay: 0.7s;
 
 
 .cont_detalles > h3 {
-  margin-top: 50px;
+  margin-top: 138px;
  color: #fff;
-  font-size: 24px;
+  font-size: 23px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
 }
 
 .cont_detalles > p {

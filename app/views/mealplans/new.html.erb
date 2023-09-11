@@ -3,15 +3,24 @@
   <p>Please answer the questions below...</p>
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-6 mb-3">
+      <div class="col-10 mb-3 ">
         <%= simple_form_for @mealplan do |f| %>
           <%= f.input :name %>
           <div class="row">
-            <div class="col-4">
+            <div class="col-3">
               <%= f.input :days %>
             </div>
-            <div class="col-8">
-              <%= f.input :initial_date, html5: true %>
+            <%# <div class="col-8"> %>
+              <%#= f.input :initial_date, html5: true %>
+            <%# </div> %>
+            <div class="col-9">
+              <%= f.input :initial_date, as: :string,
+                  wrapper_html: { class: "mb-4" },
+                  label_html: { class: "form-label text-secondary fw-bold" },
+                  input_html: { data: { controller: "flatpickr" } } %>
+            </div>
+            <div class="col-12">
+              <%= f.input :category, collection: Recipe::CATEGORY %>
             </div>
           </div>
           <%= f.button :submit, class:"btn btn-flat" %>

@@ -5,6 +5,8 @@ class Recipe < ApplicationRecord
   belongs_to :user, optional: true
   has_one_attached :photo
 
+  CATEGORY = ["vegan", "traditional", "vegetarian", "hypocaloric"]
+
   validates :name, presence: true
   validates :instructions, presence: true
   validates :category, presence: true

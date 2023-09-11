@@ -23,7 +23,7 @@ class MealplansController < ApplicationController
 
   def show
     @mealplan = Mealplan.find(params[:id])
-    @recipes = Recipe.all
+    @recipes = Recipe.where(category: @mealplan.category)
   end
 
   def update
@@ -35,7 +35,7 @@ class MealplansController < ApplicationController
   private
 
   def mealplan_params
-    params.require(:mealplan).permit(:name, :days, :initial_date)
+    params.require(:mealplan).permit(:name, :days, :initial_date, :category)
   end
 
 end
