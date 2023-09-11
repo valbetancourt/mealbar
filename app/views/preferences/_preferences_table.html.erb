@@ -1,0 +1,38 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Likes</th>
+      <th scope="col">Dislikes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <% preference.like.strip.split(",").each do |like| %>
+        <% unless like == "" %>
+        <p>
+          <%= like %>
+          <%=  link_to delete_path(ingredient: like), data: { turbo_method: :delete } do %>
+            <i class="fa-regular fa-circle-xmark fa-xs text-warning"></i>
+            <% end %>
+          <hr>
+        </p>
+          <% end %>
+        <% end %>
+      </td>
+      <td>
+        <% preference.dislike.split(",").each do |dislike| %>
+          <% unless dislike == "" %>
+          <p>
+          <%= dislike %>
+          <%= link_to delete_path(ingredient: dislike), data: { turbo_method: :delete } do %>
+            <i class="fa-regular fa-circle-xmark fa-xs text-warning"></i>
+          <% end %>
+          <hr>
+          </p>
+          <% end %>
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
+</table>
