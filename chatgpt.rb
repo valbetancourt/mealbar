@@ -1,17 +1,29 @@
-# Con access key de Juan
 client = OpenAI::Client.new(
   access_token: '',
   uri_base: 'https://api.openai.com/',
   request_timeout: 240
 )
 
-client.chat(
+require "json"
+
+days = 3
+
+like = "onions, salmon"
+
+dislike = "tomatoes, chicken"
+
+category = "traditional"
+
+response = client.chat(
   parameters: {
     model: "gpt-3.5-turbo",
-    messages: [ role: "user", content: "Create a 7-day lunch meal plan. Each day should include a recipe with the following details: recipe name, ingredients, quantities, instructions, and category. Additionally, provide a shopping list with the ingredients and quantities needed for the entire week."],
+    messages: [ role: "user", content: "Create a 10 Recipes plan with the following preferences: include #{like} and avoid #{dislike}. The format must be in a JSON object with the following keys: recipe name, ingredients, quantities and instructions. Additionally, provide a shopping list with the ingredients and quantities needed for the entire week."],
     temperature: 0.7
   }
 )
+response.gsub("\n", "")
+response_json = JSON.parse(response)
+p response_json
 
 # client = OpenAI::Client.new(
 #   access_token: '',

@@ -1,0 +1,15 @@
+
+<div class="container w-50 mt-5 border shadow p-3">
+  <h4>Preferences</h4>
+  <%= form_tag(url: preferences_path, method: "post") do %>
+    <!-- Aquí agregas los campos del formulario -->
+
+    <%= label_tag(:nombre, "Ingredient:") %>
+    <%= select_tag(:ingredient_id, options_for_select(@ingredients.map { |i| [i.name, i.id] })) %>
+    <%= submit_tag("Like", name: "like") %>
+    <%= submit_tag("Dislike", name: "dislike") %>
+  <% end %>
+
+  <hr>
+  <%= render "preferences_table", preference: @preference %>
+</div>
