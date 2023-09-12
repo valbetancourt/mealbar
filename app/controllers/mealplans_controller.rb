@@ -26,11 +26,12 @@ class MealplansController < ApplicationController
   end
 
   def show
+    @preferences = Preference.find_by(user_id: current_user.id)
     @mealplan = Mealplan.find(params[:id])
     @recipes = Recipe.where(category: @mealplan.category)
     @recipes = Recipe.all
-    # @client = Ai.new
-    # @client.prompt(@mealplan.like, @mealplan.dislike)
+    @client = Ai.new
+    @client.prompt(@preferences.like, @preferences.dislike)
 
   end
 
