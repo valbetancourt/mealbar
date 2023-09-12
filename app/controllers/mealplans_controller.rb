@@ -28,10 +28,9 @@ class MealplansController < ApplicationController
   def show
     @mealplan = Mealplan.find(params[:id])
     @recipes = Recipe.where(category: @mealplan.category)
-    @recipes = Recipe.all
+    # @recipes = Recipe.all
     # @client = Ai.new
     # @client.prompt(@mealplan.like, @mealplan.dislike)
-
   end
 
   def update
