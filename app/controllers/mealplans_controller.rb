@@ -27,9 +27,11 @@ class MealplansController < ApplicationController
 
   def show
     @mealplan = Mealplan.find(params[:id])
+    @recipes = Recipe.where(category: @mealplan.category)
     @recipes = Recipe.all
     # @client = Ai.new
     # @client.prompt(@mealplan.like, @mealplan.dislike)
+
   end
 
   def update
@@ -41,6 +43,6 @@ class MealplansController < ApplicationController
   private
 
   def mealplan_params
-    params.require(:mealplan).permit(:name, :days, :initial_date)
+    params.require(:mealplan).permit(:name, :days, :initial_date, :category)
   end
 end
