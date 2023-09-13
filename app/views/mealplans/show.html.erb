@@ -1,13 +1,18 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-8">
-      <div class="nine">
-        <h3>Name: <%= @mealplan.name %><span>Days: <%= @mealplan.days %> - Initial Date: <%= @mealplan.initial_date %> - Category: <%= @mealplan.category %></span></h3>
+    <div class="col-8" data-controller="calendar">
+      <div class="nine mt-3">
+        <h3><%= @mealplan.name %><span>Days: <%= @mealplan.days %> - Initial Date: <%= @mealplan.initial_date %> - Category: <%= @mealplan.category %></span></h3>
         <img src="https://res.cloudinary.com/df0mr9k8g/image/upload/v1694442233/icon_wsx2m3.png" class="img-fluid mb-2" style="width: 40px; height: 40px" alt="">
         <hr>
-          <br>
-          <br>
-          <br>
+          <div>
+            <% for i in 1..@mealplan.days do %>
+              <div>
+                <ul>
+                </ul>
+              </div>
+            <% end %>
+          </div>
         <hr>
       </div>
       <div class="mt-5">
@@ -17,4 +22,4 @@
   </div>
 </div>
 
-<%= link_to "Add recipe", new_mealplan_mealplan_recipe_path(@mealplan) %>
+<%#= link_to "Add recipe", new_mealplan_mealplan_recipe_path(@mealplan) %>

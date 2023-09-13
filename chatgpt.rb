@@ -1,7 +1,7 @@
 require "json"
 
 client = OpenAI::Client.new(
-  access_token: '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',
+  access_token: '',
   uri_base: 'https://api.openai.com/',
   request_timeout: 240
 )
