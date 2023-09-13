@@ -1,7 +1,7 @@
 require "json"
 
 client = OpenAI::Client.new(
-  access_token: '',
+  access_token: ENV.fetch["API_KEY_CHATGPT"],
   uri_base: 'https://api.openai.com/',
   request_timeout: 240
 )
