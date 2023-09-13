@@ -1,11 +1,12 @@
 /*
 -------------- Basic Reset Css ----------
  */
-  * {
-   margin: 0px auto;
-   padding: 0px;
-   font-family: 'Oswald', sans-serif;
- }
+//   * {
+//    margin: 0px auto;
+//    padding: 0px;
+//    font-family: 'Oswald', sans-serif;
+//    text-align: center;
+//  }
 
 /* -------- ----------- */
 .cont_principal {
@@ -17,6 +18,10 @@
 // background: -moz-linear-gradient(-45deg,  rgba(251,250,246,1) 9%, rgba(212,206,191,1) 74%, rgba(212,206,191,1) 74%, rgba(212,206,191,1) 100%); /* FF3.6-15 */
 // background: -webkit-linear-gradient(-45deg,  rgba(251,250,246,1) 9%,rgba(212,206,191,1) 74%,rgba(212,206,191,1) 74%,rgba(212,206,191,1) 100%); /* Chrome10-25,Safari5.1-6 */
 // background: linear-gradient(135deg,  rgba(251,250,246,1) 9%,rgba(212,206,191,1) 74%,rgba(212,206,191,1) 74%,rgba(212,206,191,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+margin: 0px auto;
+padding: 0px;
+font-family: 'Oswald', sans-serif;
+text-align: center;
 }
 
 
@@ -138,7 +143,7 @@ margin-top: 7px;
 }
 
 .sub_mins > span {
-  font-size: 8px;
+  font-size: 9px;
   font-weight: 700;
   color: #fff;
 }
@@ -232,7 +237,7 @@ transition-delay: 0.7s;
   margin-top: 138px;
  color: #fff;
   font-size: 23px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Oswald', sans-serif;
   font-weight: bold;
 }
 
