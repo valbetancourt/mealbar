@@ -1,13 +1,13 @@
 class Ai
     def initialize
-      client = OpenAI::Client.new(
+      @client = OpenAI::Client.new(
         access_token: ENV["CHATGPT_API_KEY"],
         uri_base: 'https://api.openai.com/',
         request_timeout: 240
       )
     end
     def prompt(like, dislike)
-      response = client.chat(
+      response = @client.chat(
         parameters: {
           model: "gpt-3.5-turbo",
           messages: [ role: "user", content: "Create a 10 Recipes plan with the following preferences: take in consideration my tastes: #{like} and avoid #{dislike}. The content  must be in a JSON object format with the following keys: recipeName, ingredients, quantities and instructions."],
