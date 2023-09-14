@@ -31,7 +31,6 @@ class MealplansController < ApplicationController
     @mealplan = Mealplan.find(params[:id])
     @recipes = Recipe.where(category: @mealplan.category)
     @mealplan_recipe = MealplanRecipe.new
-
   end
 
   def update
