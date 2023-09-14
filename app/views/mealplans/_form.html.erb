@@ -5,16 +5,17 @@
         <h5 class="modal-title" id="exampleModalLabel">When do you want to eat this meal?</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-          <%= simple_form_for [@mealplan, @mealplan_recipe] do |f| %>
-            <%= f.input :day, collection: 1..@mealplan.days%>
-            <%= f.hidden_field :recipe_id, value: id%>
-            <%= f.submit %>
-          <% end %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+      <div class="container row d-flex justify-content-center align-items-center ms-3">
+        <div class="modal-body col-4">
+            <%= simple_form_for [@mealplan, @mealplan_recipe] do |f| %>
+              <%= f.input :day, collection: 1..@mealplan.days%>
+              <%= f.hidden_field :recipe_id, value: id%>
+        </div>
+        <div class="col-8 modal-body">
+              <%= f.button :submit, "Add recipe to Meal Plan", class: "btn btn-flat" %>
+              <%#=  f.button :submit, "Log in", class: "btn btn-flat" %>
+            <% end %>
+        </div>
       </div>
     </div>
   </div>

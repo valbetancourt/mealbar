@@ -23,6 +23,5 @@ class ChatgptJob < ApplicationJob
       recipe["instructions"].split("\n")
     end
     Rails.cache.write("new_recipe_name", @new_recipe_name)
-    raise
   end
 end
