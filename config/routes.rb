@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :recipes, only: %i[index]
   resources :preferences, only: %i[index create ]
   resources :shoppinglists, only: %i[create show destroy]
-  resources :mealplans, only: %i[index new create show] do
+  resources :mealplans do
     resources :mealplan_recipes, only: %i[index new create]
   end
   post "/mealplans/:mealplan_id/mealplan_recipes", to: "mealplan_recipes#add", as: :add_mealplan_recipe
