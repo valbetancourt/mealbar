@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="row">
+    <% @recipes.each do |recipe| %>
+      <div class="col-4 mb-5" data-controller="popover calendar" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="top" title="Preparation instructions:" data-bs-content="<%= recipe.instructions %>">
+        <div class="cont_principal">
+          <div class="cont_central">
+            <div class="">
+              <div class="cont_photo">
+                <div class="cont_img_back">
+                  <%= cl_image_tag recipe.photo.key %>
+                </div>
+                <div class="cont_mins">
+                  <div class="sub_mins">
+                    <h3><%= rand(15..30) %></h3>
+                    <span>MINS</span>
+                  </div>
+                  <div class="cont_icon_right">
+                    <%#= link_to new_mealplan_mealplan_recipe_path(@mealplan) do  %>
+                      <i class="fa-solid fa-bookmark" data-bs-toggle="modal" data-bs-target="#exampleModal-<%= recipe.id %>"></i>
+                      <%#= link_to "Add recipe", new_mealplan_mealplan_recipe_path(@mealplan) %>
+                    <%# end %>
+                    <%= render "form", id:recipe.id %>
+                  </div>
+                </div>
+                <div class="cont_vale_detalles">
+                  <h3><%= recipe.name %></h3>
+                  <%# recipe.ingredients.each do |ingredient|%>
+                     <%#= ingredient.name %>
+                  <%# end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<i class="fa-solid fa-plus text-dark" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">When do you want to eat this meal?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <%= simple_form_for [@mealplan, @mealplan_recipe] do |f| %>
+            <%= f.input :day, collection: 1..@mealplan.days%>
+            <%= f.submit %>
+          <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
