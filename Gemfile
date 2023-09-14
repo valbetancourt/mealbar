@@ -91,3 +91,7 @@ gem "pg_search"
 
 # Initials gem to generate initials for users images
 gem 'initials'
+
+# Sidekiq for background jobs
+gem "sidekiq"
+gem "sidekiq-failures", "~> 1.0"
