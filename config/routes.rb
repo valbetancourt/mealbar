@@ -13,4 +13,7 @@ Rails.application.routes.draw do
   end
   post "/mealplans/:mealplan_id/mealplan_recipes", to: "mealplan_recipes#add", as: :add_mealplan_recipe
   delete "preferences/delete", to: "preferences#delete", as: :delete
+
+  require "sidekiq/web"
+    mount Sidekiq::Web => '/sidekiq'
 end

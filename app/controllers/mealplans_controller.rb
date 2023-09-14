@@ -15,7 +15,9 @@ class MealplansController < ApplicationController
   def create
     @mealplan = Mealplan.new(mealplan_params)
     @mealplan.user = current_user
+    @preferences = Preference.find_by(user_id: current_user.id)
     if @mealplan.save
+      # ChatgptJob.perform_later(@preferences.like, @preferences.dislike)
       redirect_to mealplan_path(@mealplan)
     else
       render :new
@@ -26,29 +28,8 @@ class MealplansController < ApplicationController
   end
 
   def show
-    @preferences = Preference.find_by(user_id: current_user.id)
     @mealplan = Mealplan.find(params[:id])
     @recipes = Recipe.where(category: @mealplan.category)
-    @recipes = Recipe.all
-    @client = Ai.new
-    prompt = @client.prompt(@preferences.like, @preferences.dislike)
-    data = prompt["choices"][0]["message"]["content"]
-
-    data_parse = JSON.parse(data)
-
-    recipes = data_parse["recipes"]
-    @new_recipe_name = recipes.map do |recipe|
-      recipe["recipeName"]
-    end
-    @new_recipe_ingredients = recipes.map do |recipe|
-      recipe["ingredients"]
-    end
-    @new_recipe_quantities = recipes.map do |recipe|
-      recipe["quantities"]
-    end
-    @new_recipe_instructions = recipes.map do |recipe|
-      recipe["instructions"].split("\n")
-    end
   end
 
   def update
