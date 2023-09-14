@@ -1,40 +1,35 @@
-<div class="container row g-3">
-  <div class="col-9">
-    <%= @new_recipe_name.each do |name| %>
-      <div class="card">
-        <div class="card-header">
-          <%= name %>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    <% end %>
-  </div>
-</div>
-
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+<div class="container mt-3">
+  <div class="row justify-content-center">
+    <div class="col-9">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Category</th>
+              <th scope="col">Initial Date</th>
+              <th scope="col">Days</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+      <% @mealplans.each do |mealplan| %>
+            <tr>
+              <td><%= mealplan.name %></td>
+              <td><%= mealplan.category %></td>
+              <td><%= mealplan.initial_date %></td>
+              <td><%= mealplan.days %></td>
+              <td>
+                  <%= link_to edit_mealplan_path(mealplan), method: :get do %>
+                    <i class="fa-solid fa-pencil text-dark fs-6"></i>
+                  <% end %>
+                  <%= link_to mealplan_path(mealplan), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove this mealplan?"} do %>
+                    <i class="fa-solid fa-trash-can text-danger fs-6"></i>
+                  <% end %>
+              </td>
+            </tr>
+      <% end %>
+          </tbody>
+        </table>
     </div>
   </div>
 </div>

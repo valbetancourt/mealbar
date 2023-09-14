@@ -1,2 +1,32 @@
-<h1>Mealplans#edit</h1>
-<p>Find me in app/views/mealplans/edit.html.erb</p>
+<p></p>
+<h3>Edit <%= @mealplan.name %></h3>
+
+<div class="container w-50 border shadow text-center mt-3">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-10 mb-3 mt-2">
+        <%= simple_form_for @mealplan do |f| %>
+          <%= f.input :name %>
+          <div class="row">
+            <div class="col-3">
+              <%= f.input :days %>
+            </div>
+            <%# <div class="col-8"> %>
+              <%#= f.input :initial_date, html5: true %>
+            <%# </div> %>
+            <div class="col-9">
+              <%= f.input :initial_date, as: :string,
+                  wrapper_html: { class: "mb-4" },
+                  label_html: { class: "form-label text-secondary fw-bold" },
+                  input_html: { data: { controller: "flatpickr" } } %>
+            </div>
+            <div class="col-12">
+              <%= f.input :category, collection: Recipe::CATEGORY %>
+            </div>
+          </div>
+          <%= f.button :submit, class:"btn btn-flat" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
