@@ -5,14 +5,36 @@
         <h3><%= @mealplan.name %><span>Days: <%= @mealplan.days %> - Initial Date: <%= @mealplan.initial_date %> - Category: <%= @mealplan.category %></span></h3>
         <img src="https://res.cloudinary.com/df0mr9k8g/image/upload/v1694442233/icon_wsx2m3.png" class="img-fluid mb-2" style="width: 40px; height: 40px" alt="">
         <hr>
+          <div>
+            <table class="table border">
+              <tr>
+                <% fecha = @mealplan.initial_date %>
+                <% (1..@mealplan.days).each do |day| %>
+                  <td>
+                    <%= fecha %>
+                    <% filter_recipe = @mealplan.mealplan_recipes.where(day: day) %> <br>
+                    <% filter_recipe.each do |recipe_detail| %>
+                      <%= recipe_detail.recipe.name %> <br>
+                    <% end %>
+                    <% fecha += 1.day %>
+                  </td>
+                  <br>
+                <% end %>
+              </tr>
+            </table>
+          </div>
         <hr>
       </div>
       <div class="mt-5">
         <%= render "recipe_card" %>
+      </div>
+      <hr>
+      <h3>Powered by Chat GPT</h3>
+      <div class="mt-5" data-controller="prompt">
+        <%# <%= render "shared/recipe_card_chatgpt" %> %>
       </div>
     </div>
   </div>
 </div>
 
 <%#= link_to "Add recipe", new_mealplan_mealplan_recipe_path(@mealplan) %>
-<%= console %>
