@@ -6,34 +6,21 @@
         <img src="https://res.cloudinary.com/df0mr9k8g/image/upload/v1694442233/icon_wsx2m3.png" class="img-fluid mb-2" style="width: 40px; height: 40px" alt="">
         <hr>
           <div>
-            <table class="table">
-              <thead>
-                <tr>
-                <% count = 0 %>
-                <% days = mealplan.days %>
+            <table class="table border">
+              <tr>
                 <% fecha = @mealplan.initial_date %>
-                  <% @mealplan.mealplan_recipes.each do |meal| %>
-                    <% if count == 0 %>
-                      <th scope="col"><%= @mealplan.initial_date %></th>
-                    <% else %>
-                      <th scope="col"><%= fecha %></th>
+                <% (1..@mealplan.days).each do |day| %>
+                  <td>
+                    <%= fecha %>
+                    <% filter_recipe = @mealplan.mealplan_recipes.where(day: day) %> <br>
+                    <% filter_recipe.each do |recipe_detail| %>
+                      <%= recipe_detail.recipe.name %> <br>
                     <% end %>
-                      <% count += 1 %>
-                      <% fecha += 1.day %>
-                  <% end %>
-                </tr>
-              </thead>
-            </table>
-          </div>
-          <div>
-            <table class="table">
-              <tbody>
-                  <tr>
-                    <% @mealplan.mealplan_recipes.each do |meal| %>
-                      <th scope="row"><%= meal.recipe.name %></th>
-                    <% end %>
-                  </tr>
-              </tbody>
+                    <% fecha += 1.day %>
+                  </td>
+                  <br>
+                <% end %>
+              </tr>
             </table>
           </div>
         <hr>
