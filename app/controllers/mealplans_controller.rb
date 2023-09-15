@@ -29,25 +29,25 @@ class MealplansController < ApplicationController
     @recipes = Recipe.where(category: @mealplan.category)
     @preferences = Preference.find_by(user_id: current_user.id)
     @mealplan_recipe = MealplanRecipe.new
-    @client = Ai.new
-    prompt = @client.prompt(@preferences.like, @preferences.dislike)
-    data = prompt["choices"][0]["message"]["content"]
+    # @client = Ai.new
+    # prompt = @client.prompt(@preferences.like, @preferences.dislike)
+    # data = prompt["choices"][0]["message"]["content"]
 
-    data_parse = JSON.parse(data)
+    # data_parse = JSON.parse(data)
 
-    recipes = data_parse["recipes"]
-    @new_recipe_name = recipes.map do |recipe|
-      recipe["recipeName"]
-    end
-    @new_recipe_ingredients = recipes.map do |recipe|
-      recipe["ingredients"]
-    end
-    @new_recipe_quantities = recipes.map do |recipe|
-      recipe["quantities"]
-    end
-    @new_recipe_instructions = recipes.map do |recipe|
-      recipe["instructions"].split("\n")
-    end
+    # recipes = data_parse["recipes"]
+    # @new_recipe_name = recipes.map do |recipe|
+    #   recipe["recipeName"]
+    # end
+    # @new_recipe_ingredients = recipes.map do |recipe|
+    #   recipe["ingredients"]
+    # end
+    # @new_recipe_quantities = recipes.map do |recipe|
+    #   recipe["quantities"]
+    # end
+    # @new_recipe_instructions = recipes.map do |recipe|
+    #   recipe["instructions"].split("\n")
+    # end
   end
 
   def edit
