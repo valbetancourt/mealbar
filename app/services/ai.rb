@@ -3,7 +3,7 @@ class Ai
       @client = OpenAI::Client.new(
         access_token: ENV["CHATGPT_API_KEY"],
         uri_base: 'https://api.openai.com/',
-        request_timeout: 240
+        request_timeout: 120
       )
     end
     def prompt(like, dislike)

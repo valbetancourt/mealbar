@@ -145,6 +145,63 @@ puts "creating ingredient berries"
 berries = Ingredient.new(name: "Berries")
 berries.save!
 
+puts "creating ingredient broccoli"
+broccoli = Ingredient.new(name: "Broccoli")
+broccoli.save!
+
+puts "creating ingredient cauliflower"
+cauliflower = Ingredient.new(name: "Cauliflower")
+cauliflower.save!
+
+puts "creating ingredient pesto"
+pesto = Ingredient.new(name: "Pesto")
+pesto.save!
+
+puts "creating ingredient shrimp"
+shrimp = Ingredient.new(name: "Shrimp")
+shrimp.save!
+
+puts "creating ingredient asparagus"
+asparagus = Ingredient.new(name: "Asparagus")
+asparagus.save!
+
+puts "creating ingredient tuna"
+tuna = Ingredient.new(name: "Tuna")
+tuna.save!
+
+puts "creating ingredient chickpeas"
+chickpeas = Ingredient.new(name: "Chickpeas")
+chickpeas.save!
+
+puts "creating ingredient yogurt"
+yogurt = Ingredient.new(name: "Yogurt")
+yogurt.save!
+
+puts "creating ingredient berries"
+berries = Ingredient.new(name: "Berries")
+berries.save!
+
+puts "creating ingredient lemon juice"
+lemon_juice = Ingredient.new(name: "Lemon Juice")
+lemon_juice.save!
+
+puts "creating ingredient quinoa"
+quinoa = Ingredient.new(name: "Quinoa")
+quinoa.save!
+
+puts "creating ingredient black beans"
+black_beans = Ingredient.new(name: "Black Beans")
+black_beans.save!
+
+puts "creating ingredient cod"
+cod = Ingredient.new(name: "Cod")
+cod.save!
+
+puts "creating ingredient spinach"
+spinach = Ingredient.new(name: "Spinach")
+spinach.save!
+
+
 # Recipes
 #----------------------------------------------- hypocaloric recipes ----------------------------------------------------
 puts "creating recipe teriyaki salmon bowl"
@@ -190,6 +247,95 @@ chicken_meatballs.recipe_ingredients.create!(ingredient_id: garlic.id, quantity:
 chicken_meatballs.recipe_ingredients.create!(ingredient_id: butter.id, quantity: 6)
 chicken_meatballs.recipe_ingredients.create!(ingredient_id: zucchini.id, quantity: 6)
 
+puts "creating recipe Broccoli and Cauliflower Soup"
+file = URI.open("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsUuutDy2iLgGEtfc2D76a6LHrVW35G5T16gAh6LCNlXuYD6RIFxX7AFHjnbrQac-dKsE&usqp=CAU")
+broccoli_and_cauliflower_soup = Recipe.new(name: "Broccoli and Cauliflower Soup", instructions: "1. To make the broccoli and cauliflower soup: In a large pot or Dutch oven, heat the olive oil over medium heat. Add the onion and cook for 3-4 minutes, until translucent. Add the garlic and cook for 1 minute, until fragrant.", category: "hypocaloric")
+broccoli_and_cauliflower_soup.photo.attach(io: file, filename: "broccoli_and_cauliflower_soup.jpg", content_type: "image/jpg")
+broccoli_and_cauliflower_soup.save!
+broccoli_and_cauliflower_soup.recipe_ingredients.create!(ingredient_id: broccoli.id, quantity: 6)
+broccoli_and_cauliflower_soup.recipe_ingredients.create!(ingredient_id: cauliflower.id, quantity: 6)
+broccoli_and_cauliflower_soup.recipe_ingredients.create!(ingredient_id: olive_oil.id, quantity: 6)
+
+puts "creating recipe Zucchini Noodles with Pesto"
+file = URI.open("https://www.twopeasandtheirpod.com/wp-content/uploads/2013/08/Zucchini-Noodles-with-Pesto-7.jpg")
+zucchini_noodles_pesto = Recipe.new(name: "Zucchini Noodles with Pesto", instructions: "1. To make the zucchini noodles with pesto: In a large skillet over medium heat, heat the olive oil. Add the zucchini noodles and cook for 2-3 minutes, until tender. Add the pesto and toss to coat. Season with salt and pepper to taste.", category: "hypocaloric")
+zucchini_noodles_pesto.photo.attach(io: file, filename: "zucchini_noodles_pesto.jpg", content_type: "image/jpg")
+zucchini_noodles_pesto.save!
+zucchini_noodles_pesto.recipe_ingredients.create!(ingredient_id: zucchini.id, quantity: 6)
+zucchini_noodles_pesto.recipe_ingredients.create!(ingredient_id: olive_oil.id, quantity: 6)
+zucchini_noodles_pesto.recipe_ingredients.create!(ingredient_id: pesto.id, quantity: 6)
+
+puts "creating recipe Spicy Shrimp and Asparagus"
+file = URI.open("https://www.eatwell101.com/wp-content/uploads/2019/10/Blackened-Shrimp-and-Asparagus-Skillet-1.jpg")
+spicy_shrimp_asparagus = Recipe.new(name: "Spicy Shrimp and Asparagus", instructions: "1. To make the spicy shrimp and asparagus: In a large skillet over medium heat, heat the olive oil. Add the shrimp and cook for 2-3 minutes, until pink. Add the garlic and red pepper flakes and cook for 1 minute, until fragrant. Add the asparagus and cook for 2-3 minutes, until tender. Season with salt and pepper to taste.", category: "hypocaloric")
+spicy_shrimp_asparagus.photo.attach(io: file, filename: "spicy_shrimp_asparagus.jpg", content_type: "image/jpg")
+spicy_shrimp_asparagus.save!
+spicy_shrimp_asparagus.recipe_ingredients.create!(ingredient_id: shrimp.id, quantity: 6)
+spicy_shrimp_asparagus.recipe_ingredients.create!(ingredient_id: asparagus.id, quantity: 6)
+spicy_shrimp_asparagus.recipe_ingredients.create!(ingredient_id: olive_oil.id, quantity: 6)
+
+puts "creating recipe Tuna and Chickpea Salad"
+file = URI.open("https://dishingouthealth.com/wp-content/uploads/2021/05/ChickpeaTunaSalad_Square.jpg")
+tuna_chickpea_salad = Recipe.new(name: "Tuna and Chickpea Salad", instructions: "1. To make the tuna and chickpea salad: In a large bowl, combine the tuna, chickpeas, red onion, and parsley. Add the olive oil and lemon juice and toss to coat. Season with salt and pepper to taste.", category: "hypocaloric")
+tuna_chickpea_salad.photo.attach(io: file, filename: "tuna_chickpea_salad.jpg", content_type: "image/jpg")
+tuna_chickpea_salad.save!
+tuna_chickpea_salad.recipe_ingredients.create!(ingredient_id: tuna.id, quantity: 6)
+tuna_chickpea_salad.recipe_ingredients.create!(ingredient_id: chickpeas.id, quantity: 6)
+tuna_chickpea_salad.recipe_ingredients.create!(ingredient_id: onion.id, quantity: 6)
+
+puts "creating recipe Greek Yogurt and Berry Parfait"
+file = URI.open("https://simplyhomecooked.com/wp-content/uploads/2021/08/yogurt-parfait-4.jpg")
+greek_yogurt_berry_parfait = Recipe.new(name: "Greek Yogurt and Berry Parfait", instructions: "1. To make the Greek yogurt and berry parfait: In a small bowl, combine the Greek yogurt and honey. In a separate bowl, combine the berries. In a glass, layer the Greek yogurt, berries, and granola. Repeat until the glass is full.", category: "hypocaloric")
+greek_yogurt_berry_parfait.photo.attach(io: file, filename: "greek_yogurt_berry_parfait.jpg", content_type: "image/jpg")
+greek_yogurt_berry_parfait.save!
+greek_yogurt_berry_parfait.recipe_ingredients.create!(ingredient_id: yogurt.id, quantity: 6)
+greek_yogurt_berry_parfait.recipe_ingredients.create!(ingredient_id: honey.id, quantity: 6)
+greek_yogurt_berry_parfait.recipe_ingredients.create!(ingredient_id: berries.id, quantity: 6)
+
+puts "creating recipe Steamed Asparagus with Lemon"
+file = URI.open("https://food.fnr.sndimg.com/content/dam/images/food/fullset/2013/12/9/0/FNK_Steamed-Asparagus_s4x3.jpg.rend.hgtvcom.616.462.suffix/1387411415590.jpeg")
+steamed_asparagus_lemon = Recipe.new(name: "Steamed Asparagus with Lemon", instructions: "1. To make the steamed asparagus with lemon: Fill a large pot with 1 inch of water and bring to a boil. Place the asparagus in a steamer basket and place the basket in the pot. Cover and steam for 3-5 minutes, until tender. Transfer the asparagus to a serving dish and drizzle with olive oil and lemon juice. Season with salt and pepper to taste.", category: "hypocaloric")
+steamed_asparagus_lemon.photo.attach(io: file, filename: "steamed_asparagus_lemon.jpg", content_type: "image/jpg")
+steamed_asparagus_lemon.save!
+steamed_asparagus_lemon.recipe_ingredients.create!(ingredient_id: asparagus.id, quantity: 6)
+steamed_asparagus_lemon.recipe_ingredients.create!(ingredient_id: olive_oil.id, quantity: 6)
+steamed_asparagus_lemon.recipe_ingredients.create!(ingredient_id: lemon_juice.id, quantity: 6)
+
+puts "creating recipe Quinoa and Black Bean Salad"
+file = URI.open("https://detoxinista.com/wp-content/uploads/2018/06/southwest-quinoa-salad.jpg")
+quinoa_black_bean_salad = Recipe.new(name: "Quinoa and Black Bean Salad", instructions: "1. To make the quinoa and black bean salad: In a large bowl, combine the quinoa, black beans, red onion, and cilantro. Add the olive oil and lime juice and toss to coat. Season with salt and pepper to taste.", category: "hypocaloric")
+quinoa_black_bean_salad.photo.attach(io: file, filename: "quinoa_black_bean_salad.jpg", content_type: "image/jpg")
+quinoa_black_bean_salad.save!
+quinoa_black_bean_salad.recipe_ingredients.create!(ingredient_id: quinoa.id, quantity: 6)
+quinoa_black_bean_salad.recipe_ingredients.create!(ingredient_id: black_beans.id, quantity: 6)
+quinoa_black_bean_salad.recipe_ingredients.create!(ingredient_id: onion.id, quantity: 6)
+
+puts "creating recipe Baked Cod with Herbs"
+file = URI.open("https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fill,g_auto,w_1500,ar_3:2/k%2FPhoto%2FRecipes%2F2019-07-recipe-baked-cod-lemon-garlic-herbs%2F190625-the-kitchn-christine-han-photography-149")
+baked_cod_herbs = Recipe.new(name: "Baked Cod with Herbs", instructions: "1. To make the baked cod with herbs: Preheat oven to 400°F (200°C). In a small bowl, combine the olive oil, garlic, parsley, thyme, and lemon juice. Season with salt and pepper to taste. Place the cod fillets on a baking sheet lined with parchment paper. Brush the cod fillets with the olive oil mixture. Bake for 10-12 minutes, until the cod is opaque and flakes easily with a fork.", category: "hypocaloric")
+baked_cod_herbs.photo.attach(io: file, filename: "baked_cod_herbs.jpg", content_type: "image/jpg")
+baked_cod_herbs.save!
+baked_cod_herbs.recipe_ingredients.create!(ingredient_id: cod.id, quantity: 6)
+baked_cod_herbs.recipe_ingredients.create!(ingredient_id: olive_oil.id, quantity: 6)
+baked_cod_herbs.recipe_ingredients.create!(ingredient_id: garlic.id, quantity: 6)
+
+puts "creating recipe Spinach and Mushroom Omelette"
+file = URI.open("https://static.onecms.io/wp-content/uploads/sites/19/2015/03/23/mushroom-spinach-omelet-ck.jpg")
+spinach_mushroom_omelette = Recipe.new(name: "Spinach and Mushroom Omelette", instructions: "1. To make the spinach and mushroom omelette: In a large skillet over medium heat, heat the olive oil. Add the mushrooms and cook for 3-4 minutes, until tender. Add the spinach and cook for 1-2 minutes, until wilted. Season with salt and pepper to taste. Transfer the mushrooms and spinach to a plate. In a small bowl, whisk together the eggs and milk. In the same skillet, melt the butter over medium heat. Add the egg mixture and cook for 2-3 minutes, until the bottom is set. Using a spatula, lift the edges of the omelette and tilt the pan to allow the uncooked egg to flow underneath. Cook for 1-2 minutes, until the bottom is set. Spoon the mushroom and spinach mixture onto half of the omelette. Fold the other half of the omelette over the filling. Cook for 1-2 minutes, until the cheese is melted and the omelette is cooked through.", category: "hypocaloric")
+spinach_mushroom_omelette.photo.attach(io: file, filename: "spinach_mushroom_omelette.jpg", content_type: "image/jpg")
+spinach_mushroom_omelette.save!
+spinach_mushroom_omelette.recipe_ingredients.create!(ingredient_id: mushrooms.id, quantity: 6)
+spinach_mushroom_omelette.recipe_ingredients.create!(ingredient_id: spinach.id, quantity: 6)
+spinach_mushroom_omelette.recipe_ingredients.create!(ingredient_id: olive_oil.id, quantity: 6)
+
+puts "creating recipe Grilled Veggie Wrap"
+file = URI.open("https://www.eatthis.com/wp-content/uploads/sites/4/2018/12/healthy-grilled-veggie-wrap.jpg?quality=82&strip=1")
+veggie_wrap = Recipe.new(name: "Grilled Veggie Wrap", instructions: "1. To make the grilled veggie wrap: In a large skillet over medium heat, heat the olive oil. Add the onion and cook for 3-4 minutes, until translucent. Add the bell pepper and cook for 3-4 minutes, until tender. Add the zucchini and cook for 2-3 minutes, until tender. Season with salt and pepper to taste. Transfer the vegetables to a plate. In the same skillet, melt the butter over medium heat. Add the tortilla and cook for 1-2 minutes, until golden brown. Flip the tortilla and cook for 1-2 minutes, until golden brown. Spoon the vegetables onto the tortilla. Top with the cheese and fold the tortilla over the filling. Cook for 1-2 minutes, until the cheese is melted and the tortilla is golden brown.", category: "hypocaloric")
+veggie_wrap.photo.attach(io: file, filename: "veggie_wrap.jpg", content_type: "image/jpg")
+veggie_wrap.save!
+veggie_wrap.recipe_ingredients.create!(ingredient_id: onion.id, quantity: 6)
+veggie_wrap.recipe_ingredients.create!(ingredient_id: zucchini.id, quantity: 6)
+veggie_wrap.recipe_ingredients.create!(ingredient_id: olive_oil.id, quantity: 6)
 
 #----------------------------------------------- traditional recipes ----------------------------------------------------
 
